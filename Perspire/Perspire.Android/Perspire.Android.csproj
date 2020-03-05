@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{E1A073A6-1021-4EF9-A012-7DDFB2B047A6}</ProjectGuid>
+    <ProjectGuid>{C571DA2F-932C-4506-8B25-FD3E184C4A78}</ProjectGuid>
     <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{6968b3a4-1835-46a3-ac5c-1ae33b475983}</TemplateGuid>
     <OutputType>Library</OutputType>
@@ -84,10 +84,12 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\drawable\xamarin_logo.png" />
+    <AndroidResource Include="Resources\drawable\tab_about.png" />
+    <AndroidResource Include="Resources\drawable\tab_feed.png" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Perspire\Perspire.csproj">
-      <Project>{344A0314-0AB6-4DE3-9B7F-DDBA0F76057F}</Project>
+      <Project>{F97090A5-0E14-4C99-BA9E-A537B35692DF}</Project>
       <Name>Perspire</Name>
     </ProjectReference>
   </ItemGroup>

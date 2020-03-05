@@ -5,7 +5,7 @@
     <Platform Condition=" '$(Platform)' == '' ">iPhoneSimulator</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{8FB23F3A-02E6-4A51-B365-9CE0ED00618D}</ProjectGuid>
+    <ProjectGuid>{0710DFAA-CBD9-459E-BF87-7D63B0E00BBA}</ProjectGuid>
     <ProjectTypeGuids>{FEACFBD2-3405-455C-9665-78FE426C6842};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <TemplateGuid>{89a4fe7c-635d-49c9-8d8c-5cd363c0d68d}</TemplateGuid>
     <OutputType>Exe</OutputType>
@@ -137,7 +137,7 @@
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
     <ProjectReference Include="..\Perspire\Perspire.csproj">
-      <Project>{344A0314-0AB6-4DE3-9B7F-DDBA0F76057F}</Project>
+      <Project>{F97090A5-0E14-4C99-BA9E-A537B35692DF}</Project>
       <Name>Perspire</Name>
     </ProjectReference>
   </ItemGroup>
