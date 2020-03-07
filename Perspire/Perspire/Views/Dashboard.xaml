@@ -3,7 +3,6 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-             xmlns:cardview="clr-namespace:CardView;assembly=CardView"
              mc:Ignorable="d"
              x:Class="Perspire.Views.Dashboard"
              BackgroundColor="LightBlue">
@@ -14,6 +13,8 @@
                 <Frame Margin="0">
                     <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,0,0,0">Welcome, name!</Label>
                 </Frame>
+                
+                <!-- Program view -->
                 <StackLayout Spacing="0">
                     <Frame Margin="13,13,13,0" Padding="0">
                         <StackLayout Padding="0,0,0,0">
@@ -56,27 +57,37 @@
                         </StackLayout>
                     </Frame>
                 </StackLayout>
-                <Frame Margin="10">
-                    <StackLayout>
-                        <Label>Hello there</Label>
-                        <Label>Hello there</Label>
-                        <Label>Hello there</Label>
-                    </StackLayout>
-                </Frame>
-                <Frame Margin="13">
-                    <StackLayout>
-                        <Label>Hello there</Label>
-                        <Label>Hello there</Label>
-                        <Label>Hello there</Label>
-                    </StackLayout>
-                </Frame>
-                <Frame Margin="13">
-                    <StackLayout>
-                        <Label>Hello there</Label>
-                        <Label>Hello there</Label>
-                        <Label>Hello there</Label>
-                    </StackLayout>
-                </Frame>
+                
+                <!-- Activites -->
+                <StackLayout Padding="10,10,10,10">
+                    <Label FontSize="Large" Padding="10,0,0,0">Actvities </Label>
+                    <Frame>
+                        <StackLayout>
+                           
+                        </StackLayout> 
+                    </Frame>
+                    <Frame>
+                        <Label>Today</Label>
+                    </Frame>
+                    <Frame>
+                        <Label>Yesterday</Label>
+                    </Frame>
+                </StackLayout>
+                
+                <!-- Stats -->
+                <StackLayout>
+                    <Label FontSize="Large" Padding="10,0,0,0">Stats</Label>
+                    <Frame>
+                        <Label>Stat 1</Label>
+                    </Frame>
+                    <Frame>
+                        <Label>Stat 2</Label>
+                    </Frame>
+                    <Frame>
+                        <Label>Stat 3</Label>
+                    </Frame>
+                </StackLayout>
+              
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>
