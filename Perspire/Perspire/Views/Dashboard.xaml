@@ -18,19 +18,19 @@
                 <StackLayout Spacing="0">
                     <Frame Margin="13,13,13,0" Padding="0">
                         <StackLayout Padding="0,0,0,0">
-                            <Label FontAttributes="Bold" Padding="15,10,5,5">Program Name</Label>
+                            <Label FontAttributes="Bold" Padding="10,10,0,0">Program Name</Label>
                             <Frame  Margin="0">
                                 <StackLayout>
                                     <Label>Goal 1</Label>
-                                    <ProgressBar></ProgressBar>
+                                    <ProgressBar Progress="0.2"></ProgressBar>
                                     <Label>Goal 2</Label>
-                                    <ProgressBar></ProgressBar>
+                                    <ProgressBar Progress="0.3" ProgressColor="Blue"></ProgressBar>
                                     <Label>Goal 3</Label>
-                                    <ProgressBar></ProgressBar>
+                                    <ProgressBar Progress="0.1" ProgressColor ="Brown"></ProgressBar>
                                     <Label>Goal 4</Label>
-                                    <ProgressBar></ProgressBar>
+                                    <ProgressBar Progress="0.85" ProgressColor="Green"></ProgressBar>
                                     <Label>Goal 5</Label>
-                                    <ProgressBar></ProgressBar>
+                                    <ProgressBar Progress="0.56" ProgressColor="Black"></ProgressBar>
                                 </StackLayout>
                             </Frame>
                         </StackLayout>
@@ -72,10 +72,11 @@
                     <Frame>
                         <Label>Yesterday</Label>
                     </Frame>
+                    <Label FontSize="Medium" HorizontalOptions="Center"> See more...</Label>
                 </StackLayout>
                 
                 <!-- Stats -->
-                <StackLayout>
+                <StackLayout Padding="10,10,10,10">
                     <Label FontSize="Large" Padding="10,0,0,0">Stats</Label>
                     <Frame>
                         <Label>Stat 1</Label>
@@ -86,6 +87,7 @@
                     <Frame>
                         <Label>Stat 3</Label>
                     </Frame>
+                    <Label FontSize="Medium" HorizontalOptions="Center">See All</Label>
                 </StackLayout>
               
             </StackLayout>
