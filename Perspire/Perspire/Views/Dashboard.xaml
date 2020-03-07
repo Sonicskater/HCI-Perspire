@@ -5,38 +5,79 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              xmlns:cardview="clr-namespace:CardView;assembly=CardView"
              mc:Ignorable="d"
-             x:Class="Perspire.Views.Dashboard">
+             x:Class="Perspire.Views.Dashboard"
+             BackgroundColor="LightBlue">
 
     <ContentPage.Content>
-        <StackLayout>
-            <Frame Margin="13">
-                <StackLayout>
-                    <Label>Hello there</Label>
-                    <Label>Hello there</Label>
-                    <Label>Hello there</Label>
+        <ScrollView>
+            <StackLayout>
+                <Frame Margin="0">
+                    <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,0,0,0">Welcome, name!</Label>
+                </Frame>
+                <StackLayout Spacing="0">
+                    <Frame Margin="13,13,13,0" Padding="0">
+                        <StackLayout Padding="0,0,0,0">
+                            <Label FontAttributes="Bold" Padding="15,10,5,5">Program Name</Label>
+                            <Frame  Margin="0">
+                                <StackLayout>
+                                    <Label>Goal 1</Label>
+                                    <ProgressBar></ProgressBar>
+                                    <Label>Goal 2</Label>
+                                    <ProgressBar></ProgressBar>
+                                    <Label>Goal 3</Label>
+                                    <ProgressBar></ProgressBar>
+                                    <Label>Goal 4</Label>
+                                    <ProgressBar></ProgressBar>
+                                    <Label>Goal 5</Label>
+                                    <ProgressBar></ProgressBar>
+                                </StackLayout>
+                            </Frame>
+                        </StackLayout>
+                    </Frame>
+                    <Frame Margin="20,0,20,0" BackgroundColor="LightGray">
+                        <StackLayout>
+                            <Label>To-Do Today:</Label>
+                            <StackLayout Orientation="Horizontal">
+                                <CheckBox Color="Blue"/>
+                                <Label VerticalOptions="Center">Workout 1</Label>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <CheckBox Color="Blue"/>
+                                <Label VerticalOptions="Center">Workout 1</Label>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <CheckBox Color="Blue"/>
+                                <Label VerticalOptions="Center">Workout 1</Label>
+                            </StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <CheckBox Color="Blue"/>
+                                <Label VerticalOptions="Center">Workout 1</Label>
+                            </StackLayout>
+                        </StackLayout>
+                    </Frame>
                 </StackLayout>
-            </Frame>
-            <Frame Margin="10">
-                <StackLayout>
-                    <Label>Hello there</Label>
-                    <Label>Hello there</Label>
-                    <Label>Hello there</Label>
-                </StackLayout>
-            </Frame>
-            <Frame Margin="13">
-                <StackLayout>
-                    <Label>Hello there</Label>
-                    <Label>Hello there</Label>
-                    <Label>Hello there</Label>
-                </StackLayout>
-            </Frame>
-            <Frame Margin="13">
-                <StackLayout>
-                    <Label>Hello there</Label>
-                    <Label>Hello there</Label>
-                    <Label>Hello there</Label>
-                </StackLayout>
-            </Frame>
-        </StackLayout>
+                <Frame Margin="10">
+                    <StackLayout>
+                        <Label>Hello there</Label>
+                        <Label>Hello there</Label>
+                        <Label>Hello there</Label>
+                    </StackLayout>
+                </Frame>
+                <Frame Margin="13">
+                    <StackLayout>
+                        <Label>Hello there</Label>
+                        <Label>Hello there</Label>
+                        <Label>Hello there</Label>
+                    </StackLayout>
+                </Frame>
+                <Frame Margin="13">
+                    <StackLayout>
+                        <Label>Hello there</Label>
+                        <Label>Hello there</Label>
+                        <Label>Hello there</Label>
+                    </StackLayout>
+                </Frame>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
