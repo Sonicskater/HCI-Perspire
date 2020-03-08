@@ -16,5 +16,10 @@ namespace Perspire.Views
         {
             InitializeComponent();
         }
+
+        private void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            System.Console.Out.WriteLine("Clicked!");
+        }
     }
 }

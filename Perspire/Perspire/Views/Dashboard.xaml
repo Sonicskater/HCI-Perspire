@@ -60,24 +60,42 @@
                 
                 <!-- Activites -->
                 <StackLayout Padding="10,10,10,10">
-                    <Label FontSize="Large" Padding="10,0,0,0">Actvities </Label>
-                    <Frame>
-                        <StackLayout>
-                           
-                        </StackLayout> 
-                    </Frame>
-                    <Frame>
-                        <Label>Today</Label>
-                    </Frame>
-                    <Frame>
-                        <Label>Yesterday</Label>
-                    </Frame>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontSize="Large" Padding="10,0,0,0">Actvities</Label>
+                        <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.2" Color="Black"></BoxView>
+
+                    </StackLayout>
+                    <Button Text="Record an activity" ContentLayout="Left,10" HorizontalOptions="FillAndExpand" BackgroundColor="White" >
+                        <Button.ImageSource>
+                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf417;" Color="Black"/>
+                        </Button.ImageSource>
+                    </Button>
+                    <StackLayout Spacing="0">
+                        <Frame Padding="15,5,5,5">
+                            <Label FontSize="Medium">Today</Label>
+                        </Frame>
+                        <Frame BackgroundColor="LightGray" Margin="10,0,10,0">
+                            
+                        </Frame>
+                    </StackLayout>
+
+                    <StackLayout Spacing="0">
+                        <Frame Padding="15,5,5,5">
+                            <Label FontSize="Medium">Yesterday</Label>
+                        </Frame>
+                        <Frame BackgroundColor="LightGray" Margin="10,0,10,0">
+
+                        </Frame>
+                    </StackLayout>
                     <Label FontSize="Medium" HorizontalOptions="Center"> See more...</Label>
                 </StackLayout>
                 
                 <!-- Stats -->
                 <StackLayout Padding="10,10,10,10">
-                    <Label FontSize="Large" Padding="10,0,0,0">Stats</Label>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontSize="Large" Padding="10,0,0,0">Stats</Label>
+                        <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.2" Color="Black"></BoxView>
+                    </StackLayout>
                     <Frame>
                         <Label>Stat 1</Label>
                     </Frame>
