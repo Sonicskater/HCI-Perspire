@@ -42,15 +42,18 @@
         <Tab Title="Program" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate local:Programs}" />
         </Tab>
+
         <Tab Title="Workouts">
             <Tab.Icon>
                 <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf1e6;" Color="White"/>
             </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:WorkoutList}" />
         </Tab>
         <Tab Title="Stats">
             <Tab.Icon>
                 <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf12a;" Color="White"/>
             </Tab.Icon>
+            <ShellContent ContentTemplate="{DataTemplate local:Stats}" />
         </Tab>
     </TabBar>
 
