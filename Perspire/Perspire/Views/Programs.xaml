@@ -5,6 +5,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="clr-namespace:Perspire.Controls"
     mc:Ignorable="d">
     <ContentPage.Resources>
         <Color x:Key="NavigationPrimary">#2196F3</Color>
@@ -12,25 +13,7 @@
     <ContentPage.Content>
         <StackLayout Spacing="0">
             <!-- Top bar -->
-            <Frame Padding="10" BackgroundColor="{StaticResource NavigationPrimary}" BorderColor="{StaticResource NavigationPrimary}" CornerRadius="0" HasShadow="True">
-                <StackLayout Orientation="Horizontal">
-                    <Frame CornerRadius="50" Padding="5" HorizontalOptions="FillAndExpand">
-                        <StackLayout Orientation="Horizontal">
-                            <Image>
-                                <Image.Source>
-                                    <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf349;" Color="Gray"/>
-                                </Image.Source>
-                            </Image>
-                            <Entry HorizontalOptions="FillAndExpand"/>
-                        </StackLayout>
-                    </Frame>
-                    <ImageButton BackgroundColor="Transparent">
-                        <ImageButton.Source>
-                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf232;" Color="White"/>
-                        </ImageButton.Source>
-                    </ImageButton>
-                </StackLayout>
-            </Frame>
+            <controls:SearchControl/>
             <!-- Content -->
             <ScrollView>
                 <StackLayout BackgroundColor="SkyBlue">
