@@ -14,7 +14,7 @@ namespace Perspire.ViewModels
             {
                 Name = "Deadlift",
                 Part = "Back",
-                ImageSrc = "",
+                ImageSrc = "tab_about.png",
                 Description = "back workout"
             });
 
@@ -22,7 +22,7 @@ namespace Perspire.ViewModels
             {
                 Name = "Bench Press",
                 Part = "Chest",
-                ImageSrc = "",
+                ImageSrc = "tab_about.png",
                 Description = "chest workout"
             });
             /* add more stuffs */

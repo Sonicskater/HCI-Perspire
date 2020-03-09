@@ -14,12 +14,13 @@ namespace Perspire.Views
 
             name.Text = Name;
             description.Text = Description;
-/*
+            image.Source = ImageSrc;
+            /*
             image.Source = new UriImageSource()
             {
                 Uri = new Uri(ImageSrc)
             };
-*/
+            */
         }
     }
 }
