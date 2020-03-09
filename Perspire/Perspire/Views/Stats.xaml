@@ -9,7 +9,9 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout BackgroundColor="SkyBlue">
+                
                 <controls:GraphedStat Units="lbs." Previous="189"/>
+                
                 <Label HorizontalOptions="Center" FontSize="Title" Padding="15" Text="Add more stats..."/>
             </StackLayout>
         </ScrollView>

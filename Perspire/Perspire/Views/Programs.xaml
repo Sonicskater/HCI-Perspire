@@ -6,30 +6,167 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d">
+    <ContentPage.Resources>
+        <Color x:Key="NavigationPrimary">#2196F3</Color>
+    </ContentPage.Resources>
     <ContentPage.Content>
-        <ScrollView>
-            <StackLayout>
+        <StackLayout Spacing="0">
+            <!-- Top bar -->
+            <Frame Padding="10" BackgroundColor="{StaticResource NavigationPrimary}" BorderColor="{StaticResource NavigationPrimary}" CornerRadius="0" HasShadow="True">
                 <StackLayout Orientation="Horizontal">
-                    <Label Padding="10,0,0,0" FontSize="Large">Current Program</Label>
-                    <BoxView
+                    <Frame CornerRadius="50" Padding="5" HorizontalOptions="FillAndExpand">
+                        <StackLayout Orientation="Horizontal">
+                            <Image>
+                                <Image.Source>
+                                    <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf349;" Color="Gray"/>
+                                </Image.Source>
+                            </Image>
+                            <Entry HorizontalOptions="FillAndExpand"/>
+                        </StackLayout>
+                    </Frame>
+                    <ImageButton BackgroundColor="Transparent">
+                        <ImageButton.Source>
+                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf232;" Color="White"/>
+                        </ImageButton.Source>
+                    </ImageButton>
+                </StackLayout>
+            </Frame>
+            <!-- Content -->
+            <ScrollView>
+                <StackLayout BackgroundColor="SkyBlue">
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Padding="10,0,0,0" FontSize="Large">Current Program</Label>
+                            <BoxView
                         HeightRequest="0.7"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="Center"
                         WidthRequest="1"
                         Color="Black" />
 
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Padding="10,0,0,0" FontSize="Large">Programs</Label>
-                    <BoxView
+                        </StackLayout>
+
+                        <Frame Padding="0" Margin="10">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Padding="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Name"/>
+                                        <Label Text="Type"/>
+                                    </StackLayout>
+                                    <Label Text="Desc"/>
+                                </StackLayout>
+                                <BoxView WidthRequest="150" HeightRequest="100" Color="Gray" HorizontalOptions="EndAndExpand" Margin="0"/>
+                            </StackLayout>
+                        </Frame>
+
+                    </StackLayout>
+                    <StackLayout>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Padding="10,0,0,0" FontSize="Large">Programs</Label>
+                            <BoxView
                         HeightRequest="0.7"
                         HorizontalOptions="FillAndExpand"
                         VerticalOptions="Center"
                         WidthRequest="1"
                         Color="Black" />
+                        </StackLayout>
+
+                        <Frame Padding="0" Margin="10">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Padding="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Name"/>
+                                        <Label Text="Type"/>
+                                    </StackLayout>
+                                    <Label Text="Desc"/>
+                                </StackLayout>
+                                <BoxView WidthRequest="150" HeightRequest="100" Color="Gray" HorizontalOptions="EndAndExpand" Margin="0"/>
+                            </StackLayout>
+                        </Frame>
+                        <Frame Padding="0" Margin="10">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Padding="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Name"/>
+                                        <Label Text="Type"/>
+                                    </StackLayout>
+                                    <Label Text="Desc"/>
+                                </StackLayout>
+                                <BoxView WidthRequest="150" HeightRequest="100" Color="Gray" HorizontalOptions="EndAndExpand" Margin="0"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="0" Margin="10">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Padding="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Name"/>
+                                        <Label Text="Type"/>
+                                    </StackLayout>
+                                    <Label Text="Desc"/>
+                                </StackLayout>
+                                <BoxView WidthRequest="150" HeightRequest="100" Color="Gray" HorizontalOptions="EndAndExpand" Margin="0"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="0" Margin="10">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Padding="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Name"/>
+                                        <Label Text="Type"/>
+                                    </StackLayout>
+                                    <Label Text="Desc"/>
+                                </StackLayout>
+                                <BoxView WidthRequest="150" HeightRequest="100" Color="Gray" HorizontalOptions="EndAndExpand" Margin="0"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="0" Margin="10">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Padding="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Name"/>
+                                        <Label Text="Type"/>
+                                    </StackLayout>
+                                    <Label Text="Desc"/>
+                                </StackLayout>
+                                <BoxView WidthRequest="150" HeightRequest="100" Color="Gray" HorizontalOptions="EndAndExpand" Margin="0"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="0" Margin="10">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Padding="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Name"/>
+                                        <Label Text="Type"/>
+                                    </StackLayout>
+                                    <Label Text="Desc"/>
+                                </StackLayout>
+                                <BoxView WidthRequest="150" HeightRequest="100" Color="Gray" HorizontalOptions="EndAndExpand" Margin="0"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Frame Padding="0" Margin="10">
+                            <StackLayout Orientation="Horizontal">
+                                <StackLayout Padding="10">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Name"/>
+                                        <Label Text="Type"/>
+                                    </StackLayout>
+                                    <Label Text="Desc"/>
+                                </StackLayout>
+                                <BoxView WidthRequest="150" HeightRequest="100" Color="Gray" HorizontalOptions="EndAndExpand" Margin="0"/>
+                            </StackLayout>
+                        </Frame>
+
+                        <Label Text="Create new program..." Padding="25" HorizontalOptions="Center" FontSize="Large"/>
+                    </StackLayout>
 
                 </StackLayout>
-            </StackLayout>
-        </ScrollView>
+            </ScrollView>
+        </StackLayout>
+        
     </ContentPage.Content>
 </ContentPage>
