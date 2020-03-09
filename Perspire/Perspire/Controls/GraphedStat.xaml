@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:controls="clr-namespace:Perspire.Controls"
+             mc:Ignorable="d"
+             x:Class="Perspire.Controls.GraphedStat"
+             x:Name="StatsPage">
+  <ContentView.Content>
+        <controls:NestedDropCard>
+            <controls:NestedDropCard.Top>
+                <StackLayout>
+                    <Label FontSize="Title">
+                        Weight
+                    </Label>
+                    <BoxView WidthRequest="100" HeightRequest="100" Color="Gray"/>
+                    <StackLayout Orientation="Horizontal">
+                        <Label HorizontalOptions="StartAndExpand" FontSize="30" VerticalOptions="Center" x:Name="previous"/>
+                        <Label Text="" FontSize="30" HorizontalOptions="Start" VerticalOptions="Center" x:Name="units1"/>
+                        <Label HorizontalOptions="Center" FontSize="30" VerticalOptions="Center" Text="-->"/>
+                        <Entry HorizontalOptions="EndAndExpand" WidthRequest="100" FontSize="30" Text="{Binding Entry, Source={x:Reference StatsPage}, Mode=TwoWay}" Completed="Entry_Completed"/>
+                        <Label HorizontalOptions="End" VerticalOptions="Center" FontSize="30" x:Name="units2"/>
+                    </StackLayout>
+                </StackLayout>
+            </controls:NestedDropCard.Top>
+            <controls:NestedDropCard.Bottom>
+                <StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Date"/>
+                        <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Date"/>
+                        <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Date"/>
+                        <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Date"/>
+                        <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Date"/>
+                        <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
+                    </StackLayout>
+                </StackLayout>
+            </controls:NestedDropCard.Bottom>
+        </controls:NestedDropCard>
+    </ContentView.Content>
+</ContentView>
