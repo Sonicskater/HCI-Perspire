@@ -46,6 +46,19 @@
                         <Label Text="Date"/>
                         <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
                     </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Date"/>
+                        <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Date"/>
+                        <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
+                    </StackLayout>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="Date"/>
+                        <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
+                    </StackLayout>
+                    <Label Text="See more" HorizontalOptions="Center"/>
                 </StackLayout>
             </controls:NestedDropCard.Bottom>
         </controls:NestedDropCard>

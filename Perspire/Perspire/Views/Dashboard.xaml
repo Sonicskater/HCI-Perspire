@@ -67,6 +67,7 @@
                                 <CheckBox Color="Blue"/>
                                 <Label VerticalOptions="Center">Workout 1</Label>
                             </StackLayout>
+
                         </StackLayout>
                     </controls:NestedDropCard.Bottom>
                 </controls:NestedDropCard>
