@@ -6,7 +6,8 @@
        mc:Ignorable="d"
        xmlns:local="clr-namespace:Perspire.Views"
        Title="Perspire"
-       x:Class="Perspire.AppShell">
+       x:Class="Perspire.AppShell"
+       Shell.NavBarIsVisible="False">
 
     <!-- 
         Styles and Resources 
@@ -35,7 +36,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:Dashboard}" />
         </Tab>
         <Tab Title="Program" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate local:ItemsPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:Programs}"/>
         </Tab>
         <Tab Title="Workouts" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
