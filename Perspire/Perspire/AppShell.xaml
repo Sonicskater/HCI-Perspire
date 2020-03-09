@@ -40,7 +40,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:Programs}" />
         </Tab>
         <Tab Title="Workouts" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate local:Workouts}" />
+            <ShellContent ContentTemplate="{DataTemplate local:WorkoutList}" />
         </Tab>
         <Tab Title="Stats" Icon="tab_about.png">
             <ShellContent ContentTemplate="{DataTemplate local:Stats}" />
