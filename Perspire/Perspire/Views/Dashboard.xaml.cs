@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Perspire.Controls;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,6 +21,11 @@ namespace Perspire.Views
         private void ImageButton_Clicked(object sender, EventArgs e)
         {
             System.Console.Out.WriteLine("Clicked!");
+        }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new Programs());
         }
     }
 }

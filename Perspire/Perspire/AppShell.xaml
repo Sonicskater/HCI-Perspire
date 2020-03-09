@@ -42,7 +42,7 @@
             <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
         </Tab>
         <Tab Title="Stats" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate local:AboutPage}" />
+            <ShellContent ContentTemplate="{DataTemplate local:Stats}" />
         </Tab>
     </TabBar>
 
