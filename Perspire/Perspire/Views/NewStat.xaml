@@ -4,12 +4,27 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Perspire.Views.NewStat">
+             x:Class="Perspire.Views.NewStat"
+             BackgroundColor="LightGray">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+        <Frame BackgroundColor="White" Margin="10">
+            
+
+        <StackLayout Padding=" 10,50,10,50" Spacing=" 20" VerticalOptions="CenterAndExpand">
+            <Label Text="New Stat" FontSize="Title"/>
+            <Entry FontSize="Large" Placeholder="Title"/>
+            <Entry Placeholder="Units"/>
+            <Entry Placeholder="Goal" Keyboard="Numeric"/>
+            <StackLayout Orientation="Horizontal">
+                <Label Text= "Enable Graph:" FontSize="Large"  VerticalOptions="CenterAndExpand"/>
+                <CheckBox/>
+            </StackLayout>
+            
+            <Button Text="Save" BackgroundColor="LightGreen"/>
+            <Button Text="Cancel" BackgroundColor="LightCoral"/>
+        </StackLayout>
+        </Frame>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

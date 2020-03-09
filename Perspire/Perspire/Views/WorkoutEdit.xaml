@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <ContentPage
-    x:Class="Perspire.Views.WorkoutListDetail"
+    x:Class="Perspire.Views.WorkoutEdit"
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:controls="clr-namespace:Perspire.Controls"
@@ -11,12 +11,7 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="LightGray" Padding="5" Spacing="10">
             <StackLayout Orientation="Horizontal">
-                <Label x:Name="name" FontSize="Large" />
-                <ImageButton HorizontalOptions="EndAndExpand">
-                    <ImageButton.Source>
-                        <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#x000f037e;" Color="DarkGray"/>
-                    </ImageButton.Source>
-                </ImageButton>
+                <Entry Placeholder="Workout Name" FontSize="Large" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
             <Frame BackgroundColor="Gray">
                 <Image
@@ -25,33 +20,28 @@
                 WidthRequest="100" />
             </Frame>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Category" FontSize="Medium"/>
-                <Label Text="Est. Time" FontSize="Medium" HorizontalOptions="EndAndExpand"/>
+                <Entry Placeholder="Category" FontSize="Medium"/>
+                <Entry Placeholder="Units"/>
+                <Entry Placeholder="Est. Time" FontSize="Medium" HorizontalOptions="EndAndExpand"/>
             </StackLayout>
             
             <Frame BackgroundColor="White">
-                <Label
-                x:Name="description"
+                <Entry
+                
                 Margin="20,20"
                 FontSize="Small"
-                    Text="Description"/>
+                    Placeholder="Description"/>
             </Frame>
+            <StackLayout Orientation="Horizontal">
+                <Label Text="Weights involved:" VerticalOptions="Center" FontSize="Medium"/>
+                <CheckBox/>
+            </StackLayout>
 
-            <Frame BackgroundColor="LightGreen">
-                <StackLayout>
-                    <StackLayout Orientation="Horizontal">
-                        <Entry Placeholder="Reps" HorizontalOptions="FillAndExpand"/>
-                        <DatePicker HorizontalOptions="FillAndExpand"/>
-                    </StackLayout>
-                    <Entry Placeholder="Weights"/>
-                    <Button Text="Record"/>
-                    
-                </StackLayout>
-            </Frame>
 
 
             <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
                 <Button Text="Back" BackgroundColor="LightSteelBlue" CornerRadius="5" />
+                <Button Text="Save" BackgroundColor="LightGreen" CornerRadius="5" HorizontalOptions="EndAndExpand"/>
             </StackLayout>
 
         </StackLayout>

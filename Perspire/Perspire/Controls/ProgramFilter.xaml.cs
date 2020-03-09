@@ -7,19 +7,14 @@ using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
-namespace Perspire.Views
+namespace Perspire.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Stats : ContentPage
+    public partial class ProgramFilter : ContentPage
     {
-        public Stats()
+        public ProgramFilter()
         {
             InitializeComponent();
-        }
-
-        private async void Button_Clicked(object sender, EventArgs e)
-        {
-            await Navigation.PushModalAsync(new NewStat());
         }
     }
 }

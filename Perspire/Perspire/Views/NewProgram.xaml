@@ -19,8 +19,9 @@
                         <StackLayout>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="WorkoutName" VerticalOptions="Center"/>
-                                <Label Text="Time/Reps" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
-                                <Button Text="Delete" HorizontalOptions="EndAndExpand" BackgroundColor="Maroon"/>
+                                    <Entry Placeholder="Time/Reps" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                                    <Entry Placeholder="Weeks"/>
+                                    <Button Text="Delete" HorizontalOptions="EndAndExpand" BackgroundColor="Maroon"/>
                             </StackLayout>
                             <Grid HorizontalOptions="CenterAndExpand">
                                 <Label Text="S" Grid.Column="0"/>
@@ -46,8 +47,9 @@
                         <StackLayout>
                             <StackLayout Orientation="Horizontal">
                                 <Label Text="WorkoutName" VerticalOptions="Center"/>
-                                <Label Text="Time/Reps" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
-                                <Button Text="Delete" HorizontalOptions="EndAndExpand" BackgroundColor="Maroon"/>
+                                <Entry Placeholder="Time/Reps" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                                    <Entry Placeholder="Weeks"/>
+                                    <Button Text="Delete" HorizontalOptions="EndAndExpand" BackgroundColor="Maroon"/>
                             </StackLayout>
                             <Grid HorizontalOptions="CenterAndExpand">
                                 <Label Text="S" Grid.Column="0"/>

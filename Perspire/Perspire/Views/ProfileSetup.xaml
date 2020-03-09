@@ -6,5 +6,27 @@
              mc:Ignorable="d"
              x:Class="Perspire.Views.ProfileSetup">
     <ContentPage.Content>
+        <StackLayout Padding="10">
+
+            <Frame BackgroundColor="LightGray" Margin=" 50, 0, 50, 0">
+            <Image HorizontalOptions="CenterAndExpand">
+                <Image.Source>
+                    <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf643;" Color="Gray" Size="170"/>
+                </Image.Source>
+            </Image>
+            </Frame>
+
+            <StackLayout Orientation="Horizontal">
+
+                <Entry Placeholder="First Name" HorizontalOptions="FillAndExpand"/>
+                <Entry Placeholder="Last Name" HorizontalOptions="FillAndExpand"/>
+
+            </StackLayout>
+            <Entry Placeholder="Title"/>
+            <Entry Placeholder="Age" Keyboard="Numeric"/>
+            <Entry Placeholder="Email"/>
+
+            <Button Text="Apply" VerticalOptions="CenterAndExpand" BackgroundColor="LightSteelBlue"/>
+        </StackLayout>
     </ContentPage.Content>
 </ContentPage>

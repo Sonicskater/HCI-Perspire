@@ -16,5 +16,10 @@ namespace Perspire.Controls
         {
             InitializeComponent();
         }
+
+        private async void ImageButton_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new ProgramFilter());
+        }
     }
 }

@@ -51,7 +51,8 @@
                                                 </Grid.RowDefinitions>
                                                 <Grid.ColumnDefinitions>
                                                     <ColumnDefinition Width="Auto" />
-                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="Auto" />
+                                                    <ColumnDefinition Width="Auto" />
                                                 </Grid.ColumnDefinitions>
                                                 <Image
                                         Grid.RowSpan="2"
@@ -68,7 +69,12 @@
                                         Grid.Column="1"
                                         Text="{Binding Part}"
                                         VerticalOptions="End" />
-                                            </Grid>
+                                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        Text="Estimated Time (mins)"
+                                        VerticalOptions="End" />
+                                                </Grid>
                                         </Frame>
                                     </ViewCell>
                                 </DataTemplate>
@@ -95,7 +101,8 @@
                                                     </Grid.RowDefinitions>
                                                     <Grid.ColumnDefinitions>
                                                         <ColumnDefinition Width="Auto" />
-                                                        <ColumnDefinition Width="*" />
+                                                        <ColumnDefinition Width="Auto" />
+                                                        <ColumnDefinition Width="Auto" />
                                                     </Grid.ColumnDefinitions>
                                                     <Image
                                         Grid.RowSpan="2"
@@ -111,6 +118,11 @@
                                         Grid.Row="1"
                                         Grid.Column="1"
                                         Text="{Binding Part}"
+                                        VerticalOptions="End" />
+                                                    <Label
+                                        Grid.Row="1"
+                                        Grid.Column="2"
+                                        Text="Estimated Time (mins)"
                                         VerticalOptions="End" />
                                                 </Grid>
                                             </Frame>

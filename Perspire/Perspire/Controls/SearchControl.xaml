@@ -21,7 +21,7 @@
                         <Entry HorizontalOptions="FillAndExpand"/>
                     </StackLayout>
                 </Frame>
-                <ImageButton BackgroundColor="Transparent">
+                <ImageButton BackgroundColor="Transparent" Clicked="ImageButton_Clicked">
                     <ImageButton.Source>
                         <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf232;" Color="White"/>
                     </ImageButton.Source>

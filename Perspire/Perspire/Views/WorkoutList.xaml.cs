@@ -22,7 +22,7 @@ namespace Perspire.Views
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new NewProgram());
+            await Navigation.PushModalAsync(new WorkoutEdit());
         }
     }
 }
