@@ -66,11 +66,11 @@
                 <!-- Activites -->
                 <StackLayout Padding="10,10,10,10">
                     <StackLayout Orientation="Horizontal">
-                        <Label FontSize="Large" Padding="10,0,0,0">Actvity</Label>
+                        <Label FontSize="Large" Padding="10,0,0,0">Activity</Label>
                         <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.2" Color="Black"></BoxView>
 
                     </StackLayout>
-                    <Button Text="Record an activity" ContentLayout="Left,10" HorizontalOptions="FillAndExpand" BackgroundColor="Green" TextColor="White" >
+                    <Button Text="Record an activity" ContentLayout="Left,10" HorizontalOptions="FillAndExpand" BackgroundColor="Green" TextColor="White" Clicked="Button_Clicked">
                         <Button.ImageSource>
                             <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf417;" Color="White"/>
                         </Button.ImageSource>
@@ -96,51 +96,7 @@
                                         </ImageButton.Source>
                                     </ImageButton>
                                 </Grid>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Label Grid.Column="1" Text="Reps" VerticalOptions="Center"/>
-                                    <Label Grid.Column="0" Text="Exercise" VerticalOptions="Center"/>
-                                    <ImageButton Grid.Column="2">
-                                        <ImageButton.Source>
-                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
-                                        </ImageButton.Source>
-                                    </ImageButton>
-                                </Grid>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Label Grid.Column="1" Text="Reps" VerticalOptions="Center"/>
-                                    <Label Grid.Column="0" Text="Exercise" VerticalOptions="Center"/>
-                                    <ImageButton Grid.Column="2">
-                                        <ImageButton.Source>
-                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
-                                        </ImageButton.Source>
-                                    </ImageButton>
-                                </Grid>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Label Grid.Column="1" Text="Reps" VerticalOptions="Center"/>
-                                    <Label Grid.Column="0" Text="Exercise" VerticalOptions="Center"/>
-                                    <ImageButton Grid.Column="2">
-                                        <ImageButton.Source>
-                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
-                                        </ImageButton.Source>
-                                    </ImageButton>
-                                </Grid>
+                                
                             </StackLayout>
                         </controls:NestedDropCard.Bottom>
                     </controls:NestedDropCard>
@@ -151,7 +107,95 @@
                         </controls:NestedDropCard.Top>
                         <controls:NestedDropCard.Bottom>
                             <StackLayout>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
 
+                                    <Label Grid.Column="1" Text="Reps" VerticalOptions="Center"/>
+                                    <Label Grid.Column="0" Text="Exercise" VerticalOptions="Center"/>
+                                    <ImageButton Grid.Column="2">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="1" Text="Reps" VerticalOptions="Center"/>
+                                    <Label Grid.Column="0" Text="Exercise" VerticalOptions="Center"/>
+                                    <ImageButton Grid.Column="2">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="1" Text="Reps" VerticalOptions="Center"/>
+                                    <Label Grid.Column="0" Text="Exercise" VerticalOptions="Center"/>
+                                    <ImageButton Grid.Column="2">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                </Grid><Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="1" Text="Reps" VerticalOptions="Center"/>
+                                    <Label Grid.Column="0" Text="Exercise" VerticalOptions="Center"/>
+                                    <ImageButton Grid.Column="2">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="1" Text="Reps" VerticalOptions="Center"/>
+                                    <Label Grid.Column="0" Text="Exercise" VerticalOptions="Center"/>
+                                    <ImageButton Grid.Column="2">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                </Grid>
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Grid.Column="1" Text="Reps" VerticalOptions="Center"/>
+                                    <Label Grid.Column="0" Text="Exercise" VerticalOptions="Center"/>
+                                    <ImageButton Grid.Column="2">
+                                        <ImageButton.Source>
+                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
+                                        </ImageButton.Source>
+                                    </ImageButton>
+                                </Grid>
                             </StackLayout>
                         </controls:NestedDropCard.Bottom>
                     </controls:NestedDropCard>
