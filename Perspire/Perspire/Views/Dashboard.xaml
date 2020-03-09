@@ -14,7 +14,16 @@
                 
                 <!-- Welcome card-->
                 <Frame Margin="0">
-                    <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,0,0,0">Welcome, name!</Label>
+                    <StackLayout Orientation="Horizontal" FlowDirection="RightToLeft">
+                        <ImageButton BackgroundColor="Transparent" Clicked="ImageButton_Clicked_1">
+                            <ImageButton.Source>
+                                <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#x000f001d;" Color="Gray"/>
+                            </ImageButton.Source>
+                        </ImageButton>
+                        <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,0,0,0" HorizontalOptions="CenterAndExpand">Welcome, name!</Label>
+                        
+                    </StackLayout>
+                    
                 </Frame>
 
 

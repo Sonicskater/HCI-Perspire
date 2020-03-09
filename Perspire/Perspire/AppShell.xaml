@@ -33,17 +33,24 @@
 
     <!--  Your Pages  -->
     <TabBar>
-        <Tab Title="Dashboard" Icon="tab_feed.png">
+        <Tab Title="Home">
+            <Tab.Icon>
+                <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf2dc;" Color="White"/>
+            </Tab.Icon>
             <ShellContent ContentTemplate="{DataTemplate local:Dashboard}" />
         </Tab>
-        <Tab Title="Program" Icon="tab_about.png">
+        <Tab Title="Program" Icon="tab_feed.png">
             <ShellContent ContentTemplate="{DataTemplate local:Programs}" />
         </Tab>
-        <Tab Title="Workouts" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate local:Workouts}" />
+        <Tab Title="Workouts">
+            <Tab.Icon>
+                <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf1e6;" Color="White"/>
+            </Tab.Icon>
         </Tab>
-        <Tab Title="Stats" Icon="tab_about.png">
-            <ShellContent ContentTemplate="{DataTemplate local:Stats}" />
+        <Tab Title="Stats">
+            <Tab.Icon>
+                <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf12a;" Color="White"/>
+            </Tab.Icon>
         </Tab>
     </TabBar>
 
