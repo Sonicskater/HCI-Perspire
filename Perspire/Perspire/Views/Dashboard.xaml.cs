@@ -27,5 +27,10 @@ namespace Perspire.Views
         {
             await Navigation.PushModalAsync(new Programs());
         }
+
+        private async void ImageButton_Clicked_1(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new ProfileSetup());
+        }
     }
 }
