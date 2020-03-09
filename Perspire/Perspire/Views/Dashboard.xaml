@@ -6,7 +6,7 @@
              xmlns:controls ="clr-namespace:Perspire.Controls"
              mc:Ignorable="d"
              x:Class="Perspire.Views.Dashboard"
-             BackgroundColor="LightBlue">
+             BackgroundColor="#E2FFFF">
 
     <ContentPage.Content>
         <ScrollView>
@@ -233,7 +233,7 @@
                                 <Label FontSize="Medium" VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Text="Weight"/>
                                 <Label VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Text="198 lbs."/>
                                 <Label FontSize="Medium" VerticalOptions="Center" Grid.Row="0" Grid.Column="2" Text="->"/>
-                                <Entry VerticalOptions="End" Grid.Row="0" Grid.Column="3" MaxLength="4" WidthRequest="60"/>
+                                <Entry VerticalOptions="End" Grid.Row="0" Grid.Column="3" MaxLength="4" WidthRequest="60" Placeholder="New" Keyboard="Numeric"/>
                                 <Label VerticalOptions="Center" Grid.Column="4" Text="lbs."/>
                             </Grid>
                         </controls:NestedDropCard.Top>
@@ -241,12 +241,21 @@
                             <StackLayout>
                                 <StackLayout Orientation="Horizontal">
                                     <Label Text="Date"/>
-                                    <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
+                                    <Label HorizontalOptions="EndAndExpand" Text="Old Value lbs."/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Date"/>
+                                    <Label HorizontalOptions="EndAndExpand" Text="Old Value lbs."/>
+                                </StackLayout>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Date"/>
+                                    <Label HorizontalOptions="EndAndExpand" Text="Old Value lbs."/>
                                 </StackLayout>
                             </StackLayout>
                         </controls:NestedDropCard.Bottom>
                     </controls:NestedDropCard>
                     <Label FontSize="Medium" HorizontalOptions="Center">See All</Label>
+
                 </StackLayout>
               
             </StackLayout>
