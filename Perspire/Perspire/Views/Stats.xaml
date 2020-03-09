@@ -17,9 +17,10 @@
                             </Label>
                             <BoxView WidthRequest="100" HeightRequest="100" Color="Gray"/>
                             <StackLayout Orientation="Horizontal">
-                                <Label HorizontalOptions="StartAndExpand" FontSize="Large">192</Label>
-                                <Label HorizontalOptions="Center" FontSize="Title"> --> </Label>
-                                <Entry HorizontalOptions="EndAndExpand" WidthRequest="100"/>
+                                <Label HorizontalOptions="StartAndExpand" FontSize="30" VerticalOptions="Center">192 lbs.</Label>
+                                <Label HorizontalOptions="Center" FontSize="30" VerticalOptions="Center"> --> </Label>
+                                <Entry HorizontalOptions="EndAndExpand" WidthRequest="100" FontSize="30"/>
+                                <Label HorizontalOptions="End" Text="lbs." VerticalOptions="Center" FontSize="30"/>
                             </StackLayout>
                         </StackLayout>
                     </controls:NestedDropCard.Top>
