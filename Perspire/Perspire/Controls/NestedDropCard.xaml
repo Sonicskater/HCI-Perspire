@@ -11,7 +11,7 @@
         <StackLayout Spacing="0">
             <Frame Margin="10,10,10,0" x:Name="TopContent">
             </Frame>
-            <Frame Margin="17,0,17,17" BackgroundColor="#FEFFE1" x:Name="BottomContent">
+            <Frame Margin="17,0,17,17" BackgroundColor="#FDFFA7" x:Name="BottomContent">
             </Frame>
         </StackLayout>
     </ContentView.Content>

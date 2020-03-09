@@ -11,15 +11,25 @@
         <controls:NestedDropCard>
             <controls:NestedDropCard.Top>
                 <StackLayout>
-                    <Label FontSize="Title">
-                        Weight
-                    </Label>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontSize="Title">
+                            Weight
+                        </Label>
+                        <Label FontSize="Small" VerticalOptions="Center">
+                            Goal lbs.
+                        </Label>
+                        <ImageButton HorizontalOptions="EndAndExpand">
+                            <ImageButton.Source>
+                                <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#x000f037e;" Color="DarkGray"/>
+                            </ImageButton.Source>
+                        </ImageButton>
+                    </StackLayout>
                     <BoxView WidthRequest="100" HeightRequest="100" Color="Gray"/>
                     <StackLayout Orientation="Horizontal">
                         <Label HorizontalOptions="StartAndExpand" FontSize="30" VerticalOptions="Center" x:Name="previous"/>
                         <Label Text="" FontSize="30" HorizontalOptions="Start" VerticalOptions="Center" x:Name="units1"/>
                         <Label HorizontalOptions="Center" FontSize="30" VerticalOptions="Center" Text="-->"/>
-                        <Entry HorizontalOptions="EndAndExpand" WidthRequest="100" FontSize="30" Text="{Binding Entry, Source={x:Reference StatsPage}, Mode=TwoWay}" Completed="Entry_Completed"/>
+                        <Entry HorizontalOptions="EndAndExpand" WidthRequest="100" FontSize="30" Text="{Binding Entry, Source={x:Reference StatsPage}, Mode=TwoWay}" Completed="Entry_Completed" Placeholder="New"/>
                         <Label HorizontalOptions="End" VerticalOptions="Center" FontSize="30" x:Name="units2"/>
                     </StackLayout>
                 </StackLayout>

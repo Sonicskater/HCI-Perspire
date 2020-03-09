@@ -5,90 +5,79 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Perspire.Views.NewProgram"
-             BackgroundColor="Gray">
+             BackgroundColor="White">
     <ContentPage.Content>
-        
-        <StackLayout Padding="15" Spacing="10">
-            <Frame VerticalOptions="FillAndExpand">
+        <StackLayout>
+            <Entry Placeholder="Program Name"></Entry>
+            <BoxView BackgroundColor="Gray" HeightRequest="100"></BoxView>
+            <Picker Title="Category"/>
+            <Entry Placeholder="Description"/>
+            <Frame BackgroundColor="DarkGray" Padding="5,0,5,0">
+            <ScrollView>
                 <StackLayout>
-                    <Entry Placeholder="Program Name"></Entry>
-                    <BoxView BackgroundColor="Gray" HeightRequest="100"></BoxView>
-                    <Picker Title="Category"/>
-                    <Entry Placeholder="Description"/>
-                    <ScrollView>
                     <Frame BackgroundColor="LightGray">
-                        
-                    <StackLayout>
-
-                            <StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Sunday"/>
-                                    <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.2" Color="Black"></BoxView>
-                                    
-                                </StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Workout"/>
-                                    <Label Text="Reps"/>
-                                </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Sunday"/>
-                                        <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.2" Color="Black"></BoxView>
-
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Workout"/>
-                                        <Label Text="Reps"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Sunday"/>
-                                        <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.2" Color="Black"></BoxView>
-
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Workout"/>
-                                        <Label Text="Reps"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Sunday"/>
-                                        <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.2" Color="Black"></BoxView>
-
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Workout"/>
-                                        <Label Text="Reps"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Sunday"/>
-                                        <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.2" Color="Black"></BoxView>
-
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Workout"/>
-                                        <Label Text="Reps"/>
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Sunday"/>
-                                        <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.2" Color="Black"></BoxView>
-
-                                    </StackLayout>
-                                    <StackLayout Orientation="Horizontal">
-                                        <Label Text="Workout"/>
-                                        <Label Text="Reps"/>
-                                    </StackLayout>
-                                
-                                </StackLayout>
-                        
-                    </StackLayout>
-                        
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="WorkoutName" VerticalOptions="Center"/>
+                                <Label Text="Time/Reps" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                                <Button Text="Delete" HorizontalOptions="EndAndExpand" BackgroundColor="Maroon"/>
+                            </StackLayout>
+                            <Grid HorizontalOptions="CenterAndExpand">
+                                <Label Text="S" Grid.Column="0"/>
+                                <Label Text="M" Grid.Column="1"/>
+                                <Label Text="T" Grid.Column="2"/>
+                                <Label Text="W" Grid.Column="3"/>
+                                <Label Text="T" Grid.Column="4"/>
+                                <Label Text="F" Grid.Column="5"/>
+                                <Label Text="S" Grid.Column="6"/>
+                            </Grid>
+                            <Grid HorizontalOptions="CenterAndExpand">
+                                <CheckBox Grid.Column="0"/>
+                                <CheckBox Grid.Column="1"/>
+                                <CheckBox Grid.Column="2"/>
+                                <CheckBox Grid.Column="3"/>
+                                <CheckBox Grid.Column="4"/>
+                                <CheckBox Grid.Column="5"/>
+                                <CheckBox Grid.Column="6"/>
+                            </Grid>
+                        </StackLayout>
                     </Frame>
-                    </ScrollView>
-                    <Button Text="Add workout"></Button>
+                    <Frame BackgroundColor="LightGray">
+                        <StackLayout>
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="WorkoutName" VerticalOptions="Center"/>
+                                <Label Text="Time/Reps" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                                <Button Text="Delete" HorizontalOptions="EndAndExpand" BackgroundColor="Maroon"/>
+                            </StackLayout>
+                            <Grid HorizontalOptions="CenterAndExpand">
+                                <Label Text="S" Grid.Column="0"/>
+                                <Label Text="M" Grid.Column="1"/>
+                                <Label Text="T" Grid.Column="2"/>
+                                <Label Text="W" Grid.Column="3"/>
+                                <Label Text="T" Grid.Column="4"/>
+                                <Label Text="F" Grid.Column="5"/>
+                                <Label Text="S" Grid.Column="6"/>
+                            </Grid>
+                            <Grid HorizontalOptions="CenterAndExpand">
+                                <CheckBox Grid.Column="0"/>
+                                <CheckBox Grid.Column="1"/>
+                                <CheckBox Grid.Column="2"/>
+                                <CheckBox Grid.Column="3"/>
+                                <CheckBox Grid.Column="4"/>
+                                <CheckBox Grid.Column="5"/>
+                                <CheckBox Grid.Column="6"/>
+                            </Grid>
+                        </StackLayout>
+                    </Frame>
                 </StackLayout>
+                
+            </ScrollView>
             </Frame>
+            <Button Text="Add workout" BackgroundColor="LightGreen" Margin="15,0,15,0" Clicked="Button_Clicked"></Button>
             <Frame VerticalOptions="End">
                 <StackLayout Orientation="Horizontal">
-                    <Button Text="Cancel" HorizontalOptions="FillAndExpand"/>
-                    <Button Text="Save" HorizontalOptions="FillAndExpand"/>
+                    <Button Text="Cancel" HorizontalOptions="FillAndExpand" BackgroundColor="DarkRed"/>
+                    <Button Text="Save" HorizontalOptions="FillAndExpand" BackgroundColor="DarkGreen"/>
                 </StackLayout>
             </Frame>
         </StackLayout>

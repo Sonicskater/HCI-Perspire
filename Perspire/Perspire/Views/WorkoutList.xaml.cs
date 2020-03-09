@@ -19,5 +19,10 @@ namespace Perspire.Views
             var details = e.Item as WorkoutListModel;
             await Navigation.PushModalAsync(new WorkoutListDetail(details.Name, details.Description, details.ImageSrc));
         }
+
+        private async void Button_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PushModalAsync(new NewProgram());
+        }
     }
 }

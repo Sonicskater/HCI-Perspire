@@ -40,5 +40,6 @@
                 </Button.ImageSource>
             </Button>
         </AbsoluteLayout>
+
     </ContentPage.Content>
 </ContentPage>

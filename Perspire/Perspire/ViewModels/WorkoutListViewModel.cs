@@ -12,7 +12,7 @@ namespace Perspire.ViewModels
 
             WorkoutList.Add(new WorkoutListModel
             {
-                Name = "Deadlift",
+                Name = "Workout 1",
                 Part = "Back",
                 ImageSrc = "tab_about.png",
                 Description = "back workout"
@@ -20,10 +20,10 @@ namespace Perspire.ViewModels
 
             WorkoutList.Add(new WorkoutListModel
             {
-                Name = "Bench Press",
-                Part = "Chest",
+                Name = "Workout 2",
+                Part = "Back",
                 ImageSrc = "tab_about.png",
-                Description = "chest workout"
+                Description = "back workout"
             });
             /* add more stuffs */
         }

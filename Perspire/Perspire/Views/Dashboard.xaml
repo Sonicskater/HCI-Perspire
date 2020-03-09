@@ -6,7 +6,7 @@
              xmlns:controls ="clr-namespace:Perspire.Controls"
              mc:Ignorable="d"
              x:Class="Perspire.Views.Dashboard"
-             BackgroundColor="#E2FFFF">
+             BackgroundColor="LightSkyBlue">
 
     <ContentPage.Content>
         <ScrollView>
@@ -14,6 +14,14 @@
                 
                 <!-- Welcome card-->
                 <Frame Margin="0">
+                    <StackLayout>
+
+                        <Image HorizontalOptions="CenterAndExpand">
+                            <Image.Source>
+                                <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf643;" Color="Gray" Size="170"/>
+                            </Image.Source>
+                        </Image>
+
                     <StackLayout Orientation="Horizontal" FlowDirection="RightToLeft">
                         <ImageButton BackgroundColor="Transparent" Clicked="ImageButton_Clicked_1">
                             <ImageButton.Source>
@@ -23,7 +31,8 @@
                         <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,0,0,0" HorizontalOptions="CenterAndExpand">Welcome, name!</Label>
                         
                     </StackLayout>
-                    
+                    </StackLayout>
+
                 </Frame>
 
 
