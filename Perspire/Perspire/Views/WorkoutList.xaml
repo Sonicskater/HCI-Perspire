@@ -31,14 +31,14 @@
                     <ScrollView>
 
                         <ListView
-                    HasUnevenRows="True"
-                    ItemTapped="OnItemSelected"
-                    IsGroupingEnabled="true" 
-                    GroupDisplayBinding="{Binding Name}"
-                    ItemsSource="{Binding WorkoutList}"
+                        HasUnevenRows="True"
+                        ItemTapped="OnItemSelected"
+                        IsGroupingEnabled="true" 
+                        GroupDisplayBinding="{Binding Name}"
+                        ItemsSource="{Binding WorkoutList}"
                             
-                    SeparatorVisibility="None" SeparatorColor="Transparent"
-                    >
+                        SeparatorVisibility="None" SeparatorColor="Transparent"
+                        >
                             <ListView.ItemTemplate>
                                 <DataTemplate>
                                     <ViewCell>
@@ -81,7 +81,7 @@
 
                             <ListView.GroupHeaderTemplate>
                                 <DataTemplate>
-                                    <ViewCell Height="40" Tapped="ViewCell_Tapped">
+                                    <ViewCell Height="40">
                                         <StackLayout Orientation="Horizontal">
                                             <Label FontSize="Large" Padding="10,0,0,0" Text="{Binding Name}"/>
                                             <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.4" Color="Black"></BoxView>
