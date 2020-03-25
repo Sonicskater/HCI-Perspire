@@ -24,5 +24,6 @@ namespace Perspire.Views
         {
             await Navigation.PushModalAsync(new WorkoutEdit());
         }
+
     }
 }

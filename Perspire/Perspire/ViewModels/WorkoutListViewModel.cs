@@ -5,12 +5,14 @@ namespace Perspire.ViewModels
 {
     public class WorkoutListViewModel
     {
-        public ObservableCollection<WorkoutListModel> WorkoutList { get; set; }
+        public ObservableCollection<GroupedWorkoutModel> WorkoutList { get; set; }
         public WorkoutListViewModel()
         {
-            WorkoutList = new ObservableCollection<WorkoutListModel>();
-
-            WorkoutList.Add(new WorkoutListModel
+            WorkoutList = new ObservableCollection<GroupedWorkoutModel>();
+            WorkoutList.Add(new GroupedWorkoutModel());
+            WorkoutList.Add(new GroupedWorkoutModel());
+            WorkoutList[0].Name = "Back";
+            WorkoutList[0].Add(new WorkoutListModel
             {
                 Name = "Workout 1",
                 Part = "Back",
@@ -18,14 +20,33 @@ namespace Perspire.ViewModels
                 Description = "back workout"
             });
 
-            WorkoutList.Add(new WorkoutListModel
+            WorkoutList[0].Add(new WorkoutListModel
             {
                 Name = "Workout 2",
                 Part = "Back",
                 ImageSrc = "tab_about.png",
                 Description = "back workout"
             });
+
+            WorkoutList[1].Name = "Shoulder";
+            WorkoutList[1].Add(new WorkoutListModel
+            {
+                Name = "Workout 3",
+                Part = "Shoulder",
+                ImageSrc = "tab_about.png",
+                Description = "back workout"
+            });
+
+            WorkoutList[1].Add(new WorkoutListModel
+            {
+                Name = "Workout 4",
+                Part = "Shoulder",
+                ImageSrc = "tab_about.png",
+                Description = "back workout"
+            });
             /* add more stuffs */
+
+
         }
     }
 }
