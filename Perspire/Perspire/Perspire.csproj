@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Views\WorkoutEdit.xaml.cs">
+    <Compile Update="Views\Workouts\WorkoutEdit.xaml.cs">
       <DependentUpon>WorkoutEdit.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
@@ -28,25 +28,25 @@
     <EmbeddedResource Update="Controls\ProgramFilter.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Dashboard.xaml">
+    <EmbeddedResource Update="Views\Dashboard\Dashboard.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\NewProgram.xaml">
+    <EmbeddedResource Update="Views\Programs\NewProgram.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\NewStat.xaml">
+    <EmbeddedResource Update="Views\Stats\NewStat.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ProfileSetup.xaml">
+    <EmbeddedResource Update="Views\Dashboard\ProfileSetup.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Programs.xaml">
+    <EmbeddedResource Update="Views\Programs\Programs.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Controls\SearchControl.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\Stats.xaml">
+    <EmbeddedResource Update="Views\Stats\Stats.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

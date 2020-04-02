@@ -34,8 +34,7 @@
                         HasUnevenRows="True"
                         ItemTapped="OnItemSelected"
                         IsGroupingEnabled="true" 
-                        GroupDisplayBinding="{Binding Name}"
-                        ItemsSource="{Binding WorkoutList}"
+                        ItemsSource="{Binding WorkoutList, Mode=OneWay}"
                             
                         SeparatorVisibility="None" SeparatorColor="Transparent"
                         >
@@ -82,7 +81,10 @@
                             <ListView.GroupHeaderTemplate>
                                 <DataTemplate>
                                     <ViewCell Height="40">
-                                        <StackLayout Orientation="Horizontal">
+                                        <StackLayout Orientation="Horizontal" >
+                                            <StackLayout.GestureRecognizers>
+                                                <TapGestureRecognizer Tapped="ViewCell_Tapped" NumberOfTapsRequired="2"/>
+                                            </StackLayout.GestureRecognizers>
                                             <Label FontSize="Large" Padding="10,0,0,0" Text="{Binding Name}"/>
                                             <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.4" Color="Black"></BoxView>
 
