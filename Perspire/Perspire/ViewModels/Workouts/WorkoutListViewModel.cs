@@ -28,6 +28,7 @@ namespace Perspire.ViewModels
                 Description = "back workout"
             });
             WorkoutList.Add(new GroupedWorkoutModel(_WorkoutList, "Back"));
+            _WorkoutList.Clear();
             _WorkoutList.Add(new WorkoutListModel
             {
                 Name = "Workout 3",

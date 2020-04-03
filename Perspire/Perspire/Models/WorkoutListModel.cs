@@ -25,6 +25,7 @@ namespace Perspire.Models
                 workouts.Add(i);
             }
             Name = name;
+            Expanded = true;
         }
         public bool Expanded
         {
