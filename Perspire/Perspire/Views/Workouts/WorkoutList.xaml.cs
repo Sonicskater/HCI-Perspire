@@ -17,7 +17,7 @@ namespace Perspire.Views
 
         private async void OnItemSelected(Object sender, ItemTappedEventArgs e)
         {
-            var details = e.Item as WorkoutListModel;
+            var details = e.Item as Workout;
             await Navigation.PushModalAsync(new WorkoutListDetail(details.Name, details.Description, details.ImageSrc));
         }
 
