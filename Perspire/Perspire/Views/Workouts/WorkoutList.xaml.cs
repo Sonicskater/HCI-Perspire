@@ -17,7 +17,7 @@ namespace Perspire.Views
 
         private async void OnItemSelected(Object sender, ItemTappedEventArgs e)
         {
-            var details = e.Item as Workout;
+            var details = e.Item as WorkoutModel;
             await Navigation.PushModalAsync(new WorkoutListDetail(details.Name, details.Description, details.ImageSrc));
         }
 
@@ -28,7 +28,7 @@ namespace Perspire.Views
 
         private void ViewCell_Tapped(object sender, EventArgs e)
         {
-            int selecteddIndex = ((WorkoutListViewModel)BindingContext).WorkoutList.IndexOf((GroupedWorkoutModel)(sender as StackLayout).BindingContext);
+            int selecteddIndex = ((WorkoutListViewModel)BindingContext).WorkoutList.IndexOf((WorkoutGroupViewModel)(sender as StackLayout).BindingContext);
             ((WorkoutListViewModel)BindingContext).ToggleVis(selecteddIndex);
             System.Console.WriteLine("Tapped header {0}, expanded is now {1}", selecteddIndex, ((WorkoutListViewModel)BindingContext).WorkoutList[selecteddIndex].Expanded);
         }

@@ -8,12 +8,12 @@ namespace Perspire.ViewModels
 {
     public class WorkoutListViewModel : BaseViewModel
     {
-        public ObservableCollection<GroupedWorkoutModel> WorkoutList { get; set; } = new ObservableCollection<GroupedWorkoutModel>();
+        public ObservableCollection<WorkoutGroupViewModel> WorkoutList { get; set; } = new ObservableCollection<WorkoutGroupViewModel>();
         public WorkoutListViewModel()
         {
-            var group = new WorkoutGroup("Back");
+            var group = new WorkoutGroupModel("Back");
             
-            group.Add(new Workout
+            group.Add(new WorkoutModel
             {
                 Name = "Workout 1",
                 Part = "Back",
@@ -21,17 +21,17 @@ namespace Perspire.ViewModels
                 Description = "back workout"
             });
 
-            group.Add(new Workout
+            group.Add(new WorkoutModel
             {
                 Name = "Workout 2",
                 Part = "Back",
                 ImageSrc = "tab_about.png",
                 Description = "back workout"
             });
-            WorkoutList.Add(new GroupedWorkoutModel(group));
+            WorkoutList.Add(new WorkoutGroupViewModel(group));
 
-            group = new WorkoutGroup("Shoulder");
-            group.Add(new Workout
+            group = new WorkoutGroupModel("Shoulder");
+            group.Add(new WorkoutModel
             {
                 Name = "Workout 3",
                 Part = "Shoulder",
@@ -39,14 +39,14 @@ namespace Perspire.ViewModels
                 Description = "back workout"
             });
 
-            group.Add(new Workout
+            group.Add(new WorkoutModel
             {
                 Name = "Workout 4",
                 Part = "Shoulder",
                 ImageSrc = "tab_about.png",
                 Description = "back workout"
             });
-            WorkoutList.Add(new GroupedWorkoutModel(group));
+            WorkoutList.Add(new WorkoutGroupViewModel(group));
         }
 
         public void ToggleVis(int index)
@@ -55,12 +55,13 @@ namespace Perspire.ViewModels
         }
     }
 
-    public class GroupedWorkoutModel : ObservableCollection<Workout>, IEquatable<GroupedWorkoutModel>
+
+    public class WorkoutGroupViewModel : ObservableCollection<WorkoutModel>, IEquatable<WorkoutGroupViewModel>
     {
-        private WorkoutGroup workouts;
+        private WorkoutGroupModel workouts;
         private bool _expanded = false;
 
-        public GroupedWorkoutModel(WorkoutGroup workouts) : base()
+        public WorkoutGroupViewModel(WorkoutGroupModel workouts) : base()
         {
             this.workouts = workouts;
             Expanded = true;
@@ -118,7 +119,7 @@ namespace Perspire.ViewModels
             }
         }
 
-        bool IEquatable<GroupedWorkoutModel>.Equals(GroupedWorkoutModel other)
+        bool IEquatable<WorkoutGroupViewModel>.Equals(WorkoutGroupViewModel other)
         {
             return this.Name == other.Name;
         }

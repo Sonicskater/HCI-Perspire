@@ -5,17 +5,22 @@ using System.ComponentModel;
 
 namespace Perspire.Models
 {
-    public class Workout
+    /// <summary>
+    /// Work out data model
+    /// </summary>
+    public class WorkoutModel
     {
         public string Name { get; set; }
         public string Part { get; set; }
         public string ImageSrc { get; set; }
         public string Description { get; set; }
     }
-
-    public class WorkoutGroup : List<Workout>
+    /// <summary>
+    /// Workotu Group data model
+    /// </summary>
+    public class WorkoutGroupModel : List<WorkoutModel>
     {
-        public WorkoutGroup(String name) : base()
+        public WorkoutGroupModel(String name) : base()
         {
             Name = name;
         }
