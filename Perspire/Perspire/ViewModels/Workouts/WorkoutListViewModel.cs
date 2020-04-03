@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using Perspire.DataStore;
 using Perspire.Models;
 
 namespace Perspire.ViewModels
@@ -11,42 +12,11 @@ namespace Perspire.ViewModels
         public ObservableCollection<WorkoutGroupViewModel> WorkoutList { get; set; } = new ObservableCollection<WorkoutGroupViewModel>();
         public WorkoutListViewModel()
         {
-            var group = new WorkoutGroupModel("Back");
-            
-            group.Add(new WorkoutModel
+            var datastore = WorkoutDataStore.Get();
+            foreach (var i in datastore)
             {
-                Name = "Workout 1",
-                Part = "Back",
-                ImageSrc = "tab_about.png",
-                Description = "back workout"
-            });
-
-            group.Add(new WorkoutModel
-            {
-                Name = "Workout 2",
-                Part = "Back",
-                ImageSrc = "tab_about.png",
-                Description = "back workout"
-            });
-            WorkoutList.Add(new WorkoutGroupViewModel(group));
-
-            group = new WorkoutGroupModel("Shoulder");
-            group.Add(new WorkoutModel
-            {
-                Name = "Workout 3",
-                Part = "Shoulder",
-                ImageSrc = "tab_about.png",
-                Description = "back workout"
-            });
-
-            group.Add(new WorkoutModel
-            {
-                Name = "Workout 4",
-                Part = "Shoulder",
-                ImageSrc = "tab_about.png",
-                Description = "back workout"
-            });
-            WorkoutList.Add(new WorkoutGroupViewModel(group));
+                WorkoutList.Add(new WorkoutGroupViewModel(i));
+            }
         }
 
         public void ToggleVis(int index)
