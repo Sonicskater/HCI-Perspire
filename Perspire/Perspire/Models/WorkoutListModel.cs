@@ -39,7 +39,7 @@ namespace Perspire.Models
                 {
                     _expanded = value;
                     OnPropertyChanged(new PropertyChangedEventArgs("Expanded"));
-                    //OnPropertyChanged(new PropertyChangedEventArgs("StateIcon"));
+                    OnPropertyChanged(new PropertyChangedEventArgs("Glyph"));
                     if (_expanded)
                     {
                         foreach (var i in workouts)
@@ -55,6 +55,20 @@ namespace Perspire.Models
                 }
             }
         }
+        private string collapsed = IconFont.ChevronDown;
+        private string expanded = IconFont.ChevronUp;
+        public string Glyph { get
+            {
+                if (Expanded)
+                {
+                    return expanded;
+                }
+                else
+                {
+                    return collapsed;
+                }
+            } }
+
         public string Name { get; set; }
 
         bool IEquatable<GroupedWorkoutModel>.Equals(GroupedWorkoutModel other)

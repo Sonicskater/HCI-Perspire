@@ -87,7 +87,11 @@
                                             </StackLayout.GestureRecognizers>
                                             <Label FontSize="Large" Padding="10,0,0,0" Text="{Binding Name}"/>
                                             <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.4" Color="Black"></BoxView>
-
+                                            <Image>
+                                                <Image.Source>
+                                                    <FontImageSource FontFamily="{StaticResource IconFont}" Glyph ="{Binding Glyph}" Color="Black"/>
+                                                </Image.Source>
+                                            </Image> 
                                         </StackLayout>
                                     </ViewCell>
                                 </DataTemplate>
