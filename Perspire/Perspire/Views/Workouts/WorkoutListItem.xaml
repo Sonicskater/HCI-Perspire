@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Perspire.Views.Workouts.WorkoutListItem">
+    <Frame Margin="15">
+        <Grid Padding="2">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="Auto" />
+            </Grid.ColumnDefinitions>
+            <Image
+                                    Grid.RowSpan="2"
+                                    Aspect="AspectFill"
+                                    HeightRequest="60"
+                                    Source="{Binding ImageSrc}"
+                                    WidthRequest="60" />
+            <Label
+                                    Grid.Column="1"
+                                    FontAttributes="Bold"
+                                    Text="{Binding Name}" />
+            <Label
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Text="{Binding Part}"
+                                    VerticalOptions="End" />
+            <Label
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    Text="Estimated Time (mins)"
+                                    VerticalOptions="End" />
+        </Grid>
+    </Frame>
+</ViewCell>

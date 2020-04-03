@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Perspire.Views.Workouts.WorkoutListGroup"
+             Height="40">
+    <StackLayout Orientation="Horizontal" >
+        <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Tapped="ToggleGroup" NumberOfTapsRequired="2"/>
+        </StackLayout.GestureRecognizers>
+        <Label FontSize="Large" Padding="10,0,0,0" Text="{Binding Name}"/>
+        <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.4" Color="Black"></BoxView>
+        <Image>
+            <Image.Source>
+                <FontImageSource FontFamily="{StaticResource IconFont}" Glyph ="{Binding Glyph}" Color="Black"/>
+            </Image.Source>
+        </Image>
+    </StackLayout>
+</ViewCell>

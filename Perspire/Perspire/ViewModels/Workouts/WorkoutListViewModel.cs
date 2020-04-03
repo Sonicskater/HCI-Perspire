@@ -123,6 +123,11 @@ namespace Perspire.ViewModels
         {
             return this.Name == other.Name;
         }
+
+        public void Toggle()
+        {
+            this.Expanded = !this.Expanded;
+        }
     }
 
 }

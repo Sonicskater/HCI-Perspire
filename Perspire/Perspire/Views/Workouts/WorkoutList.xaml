@@ -6,6 +6,7 @@
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:controls ="clr-namespace:Perspire.Controls"
+    xmlns:local ="clr-namespace:Perspire.Views.Workouts"
     mc:Ignorable="d">
     <ContentPage.Resources>
         <Color x:Key="NavigationPrimary">#2196F3</Color>
@@ -29,73 +30,25 @@
                 <StackLayout Spacing="0" BackgroundColor="LightBlue">
                     <controls:SearchControl/>
                     <ScrollView>
-
                         <ListView
                         HasUnevenRows="True"
                         ItemTapped="OnItemSelected"
                         IsGroupingEnabled="true" 
                         ItemsSource="{Binding WorkoutList, Mode=OneWay}"
-                            
                         SeparatorVisibility="None" SeparatorColor="Transparent"
                         >
                             <ListView.ItemTemplate>
                                 <DataTemplate>
-                                    <ViewCell>
-                                        <Frame Margin="15">
-                                            <Grid Padding="2">
-                                                <Grid.RowDefinitions>
-                                                    <RowDefinition Height="Auto" />
-                                                    <RowDefinition Height="*" />
-                                                </Grid.RowDefinitions>
-                                                <Grid.ColumnDefinitions>
-                                                    <ColumnDefinition Width="Auto" />
-                                                    <ColumnDefinition Width="Auto" />
-                                                    <ColumnDefinition Width="Auto" />
-                                                </Grid.ColumnDefinitions>
-                                                <Image
-                                        Grid.RowSpan="2"
-                                        Aspect="AspectFill"
-                                        HeightRequest="60"
-                                        Source="{Binding ImageSrc}"
-                                        WidthRequest="60" />
-                                                <Label
-                                        Grid.Column="1"
-                                        FontAttributes="Bold"
-                                        Text="{Binding Name}" />
-                                                <Label
-                                        Grid.Row="1"
-                                        Grid.Column="1"
-                                        Text="{Binding Part}"
-                                        VerticalOptions="End" />
-                                                <Label
-                                        Grid.Row="1"
-                                        Grid.Column="2"
-                                        Text="Estimated Time (mins)"
-                                        VerticalOptions="End" />
-                                            </Grid>
-                                        </Frame>
-                                    </ViewCell>
+                                    <local:WorkoutListItem/>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
-
+                            
                             <ListView.GroupHeaderTemplate>
                                 <DataTemplate>
-                                    <ViewCell Height="40">
-                                        <StackLayout Orientation="Horizontal" >
-                                            <StackLayout.GestureRecognizers>
-                                                <TapGestureRecognizer Tapped="ViewCell_Tapped" NumberOfTapsRequired="2"/>
-                                            </StackLayout.GestureRecognizers>
-                                            <Label FontSize="Large" Padding="10,0,0,0" Text="{Binding Name}"/>
-                                            <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.4" Color="Black"></BoxView>
-                                            <Image>
-                                                <Image.Source>
-                                                    <FontImageSource FontFamily="{StaticResource IconFont}" Glyph ="{Binding Glyph}" Color="Black"/>
-                                                </Image.Source>
-                                            </Image> 
-                                        </StackLayout>
-                                    </ViewCell>
+                                    <local:WorkoutListGroup/>
                                 </DataTemplate>
                             </ListView.GroupHeaderTemplate>
+                            
                         </ListView>
                     </ScrollView>
                 </StackLayout>

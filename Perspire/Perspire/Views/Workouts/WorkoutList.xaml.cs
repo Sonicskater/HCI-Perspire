@@ -25,12 +25,5 @@ namespace Perspire.Views
         {
             await Navigation.PushModalAsync(new WorkoutEdit());
         }
-
-        private void ViewCell_Tapped(object sender, EventArgs e)
-        {
-            int selecteddIndex = ((WorkoutListViewModel)BindingContext).WorkoutList.IndexOf((WorkoutGroupViewModel)(sender as StackLayout).BindingContext);
-            ((WorkoutListViewModel)BindingContext).ToggleVis(selecteddIndex);
-            System.Console.WriteLine("Tapped header {0}, expanded is now {1}", selecteddIndex, ((WorkoutListViewModel)BindingContext).WorkoutList[selecteddIndex].Expanded);
-        }
     }
 }
