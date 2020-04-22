@@ -23,7 +23,7 @@ namespace Perspire
         {
             var builder = new ContainerBuilder();
 
-            builder.RegisterType<WorkoutRepository>().SingleInstance();
+            builder.RegisterType<DataRepository>().SingleInstance();
             builder.RegisterType<WorkoutListViewModel>().SingleInstance();
 
             var container = builder.Build();

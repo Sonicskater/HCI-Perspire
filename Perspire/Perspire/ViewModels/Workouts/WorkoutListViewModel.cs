@@ -31,8 +31,8 @@ namespace Perspire.ViewModels
         }
         public WorkoutListViewModel()
         {
-            var datastore = DependencyService.Resolve<WorkoutRepository>();
-            foreach (var i in datastore)
+            var datastore = DependencyService.Resolve<DataRepository>();
+            foreach (var i in datastore.getWorkoutPrograms())
             {
                 WorkoutList.Add(new WorkoutGroupViewModel(i));
             }
@@ -70,7 +70,7 @@ namespace Perspire.ViewModels
                 if (_expanded) {
                     foreach (var i in workouts)
                     {
-                        if (i.Name.StartsWith(value))
+                        if (i.Name.ToLower().StartsWith(value.ToLower()))
                         {
                             Add(i);
                         }

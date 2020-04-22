@@ -1,13 +1,17 @@
 ﻿using Perspire.Models;
+using Realms;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace Perspire.DataStore
 {
-    class WorkoutRepository : List<WorkoutGroupModel>
+    class DataRepository
     {
-        public WorkoutRepository() : base()
+
+        private Realm realm = Realm.GetInstance();
+
+        public DataRepository()
         {
             var group = new WorkoutGroupModel("Back");
 
@@ -26,7 +30,7 @@ namespace Perspire.DataStore
                 ImageSrc = "tab_about.png",
                 Description = "back workout"
             });
-            Add(group);
+            addWorkoutGroup(group);
 
             group = new WorkoutGroupModel("Shoulder");
             group.Add(new WorkoutModel
@@ -44,7 +48,36 @@ namespace Perspire.DataStore
                 ImageSrc = "tab_about.png",
                 Description = "back workout"
             });
-            Add(group);
+            addWorkoutGroup(group);
+        }
+
+        public void addWorkout(WorkoutModel workout)
+        {
+            realm.Write(() =>
+            {
+                realm.Add(workout);
+            });
+        }
+
+        public void addWorkoutGroup(WorkoutGroupModel group)
+        {
+            realm.Write(() =>
+            {
+                realm.Add(group);
+            });
+        }
+
+        public void addProgram(ProgramModel program)
+        {
+            realm.Write(() =>
+            {
+                realm.Add(program);
+            });
+        }
+
+        internal IEnumerable<WorkoutGroupModel> getWorkoutPrograms()
+        {
+            return realm.All<WorkoutGroupModel>();
         }
     }
 }
