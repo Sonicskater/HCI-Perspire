@@ -3,6 +3,8 @@ using Perspire.ViewModels;
 using Perspire.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Perspire.Controls;
+using System.Windows.Input;
 
 namespace Perspire.Views
 {
@@ -10,10 +12,13 @@ namespace Perspire.Views
     {
         public WorkoutList()
         {
-            var data = new WorkoutListViewModel();
+            var data = DependencyService.Resolve<WorkoutListViewModel>();
+
             InitializeComponent();
             BindingContext = data;
         }
+
+
 
         private async void OnItemSelected(Object sender, ItemTappedEventArgs e)
         {

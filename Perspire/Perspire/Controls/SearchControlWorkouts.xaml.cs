@@ -10,18 +10,18 @@ using Xamarin.Forms.Xaml;
 namespace Perspire.Controls
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class SearchControl : ContentView
+    public partial class SearchControlWorkouts : ContentView
     {
-        public SearchControl()
+        public SearchControlWorkouts()
         {
             InitializeComponent();
             FilterButtonCommand = new Command(() =>
             {
-                System.Console.WriteLine("TEST!");
+                Navigation.PushModalAsync(new ProgramFilter());
             });
         }
 
-        public static readonly BindableProperty FilterButtonProperty = BindableProperty.Create(nameof(FilterButtonCommand), typeof(ICommand), typeof(SearchControl), null);
+        public static readonly BindableProperty FilterButtonProperty = BindableProperty.Create(nameof(FilterButtonCommand), typeof(ICommand), typeof(SearchControlWorkouts), null);
 
         public ICommand FilterButtonCommand
         {

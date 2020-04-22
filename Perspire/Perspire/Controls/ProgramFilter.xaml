@@ -8,26 +8,32 @@
              BackgroundColor="LightGray">
     <ContentPage.Content>
         <StackLayout>
-            <StackLayout Padding="10">
-                <Frame>
-                    <Label Text="Category"/>
-                </Frame>
-                <Frame>
-                    <Label Text="Category"/>
-                </Frame>
-                <Frame>
-                    <Label Text="Category"/>
-                </Frame>
-                <Frame>
-                    <Label Text="Category"/>
-                </Frame>
-                <Frame>
-                    <Label Text="Category"/>
-                </Frame>
-                <Frame>
-                    <Label Text="Category"/>
-                </Frame>
+            <StackLayout Orientation="Horizontal">
+                <StackLayout Padding="10">
+                    <Frame>
+                        <Label Text="Category"/>
+                    </Frame>
+                    <Frame>
+                        <Label Text="Category"/>
+                    </Frame>
+                    <Frame>
+                        <Label Text="Category"/>
+                    </Frame>
+                    <Frame>
+                        <Label Text="Category"/>
+                    </Frame>
+                    <Frame>
+                        <Label Text="Category"/>
+                    </Frame>
+                    <Frame>
+                        <Label Text="Category"/>
+                    </Frame>
+                </StackLayout>
+                <Image>
+                    
+                </Image>
             </StackLayout>
+            
             <Frame VerticalOptions="EndAndExpand">
                 <StackLayout Orientation="Horizontal">
                     <Button Text="Clear" HorizontalOptions="FillAndExpand" BackgroundColor="SteelBlue"/>

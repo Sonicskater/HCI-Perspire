@@ -28,7 +28,7 @@
         <AbsoluteLayout>
             <Grid AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
                 <StackLayout Spacing="0" BackgroundColor="LightBlue">
-                    <controls:SearchControl/>
+                    <controls:SearchControlWorkouts x:Name="Search"/>
                     <ScrollView>
                         <ListView
                         HasUnevenRows="True"

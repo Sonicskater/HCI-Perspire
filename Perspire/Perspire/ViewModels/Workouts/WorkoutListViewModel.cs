@@ -2,22 +2,27 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Windows.Input;
 using Perspire.DataStore;
 using Perspire.Models;
+using Xamarin.Forms;
 
 namespace Perspire.ViewModels
 {
     public class WorkoutListViewModel : BaseViewModel
     {
+
         public ObservableCollection<WorkoutGroupViewModel> WorkoutList { get; set; } = new ObservableCollection<WorkoutGroupViewModel>();
         public WorkoutListViewModel()
         {
-            var datastore = WorkoutDataStore.Get();
+            var datastore = DependencyService.Resolve<WorkoutRepository>();
             foreach (var i in datastore)
             {
                 WorkoutList.Add(new WorkoutGroupViewModel(i));
             }
         }
+
+
 
         public void ToggleVis(int index)
         {

@@ -9,7 +9,7 @@ using Perspire.Models;
 
 namespace Perspire.ViewModels
 {
-    public class BaseViewModel : INotifyPropertyChanged
+    public class BaseViewModel : BindableObject, INotifyPropertyChanged
     {
 
         bool isBusy = false;

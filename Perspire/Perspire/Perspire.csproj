@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="5.1.2" />
     <PackageReference Include="LiveXAML" Version="2.1.73" />
     <PackageReference Include="Rg.Plugins.Popup" Version="1.2.0.223" />
     <PackageReference Include="Xamarin.Forms" Version="4.3.0.908675" />  
@@ -13,6 +14,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="Controls\SearchControlWorkouts.xaml.cs">
+      <DependentUpon>SearchControlWorkouts.xaml</DependentUpon>
+    </Compile>
     <Compile Update="Views\Workouts\WorkoutEdit.xaml.cs">
       <DependentUpon>WorkoutEdit.xaml</DependentUpon>
     </Compile>
