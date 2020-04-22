@@ -18,6 +18,11 @@ namespace Perspire.Views
             BindingContext = data;
         }
 
+        private async void OpenFilter(Object sender, EventArgs e)
+        {
+
+            await Navigation.PushModalAsync(new ProgramFilter());
+        }
 
 
         private async void OnItemSelected(Object sender, ItemTappedEventArgs e)

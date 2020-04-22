@@ -28,7 +28,25 @@
         <AbsoluteLayout>
             <Grid AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
                 <StackLayout Spacing="0" BackgroundColor="LightBlue">
-                    <controls:SearchControlWorkouts x:Name="Search"/>
+                    <Frame Padding="10" BackgroundColor="{StaticResource NavigationPrimary}" BorderColor="{StaticResource NavigationPrimary}" CornerRadius="0" HasShadow="True">
+                        <StackLayout Orientation="Horizontal">
+                            <Frame CornerRadius="50" Padding="5" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image>
+                                        <Image.Source>
+                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf349;" Color="Gray"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <Entry HorizontalOptions="FillAndExpand" Text="{Binding SearchString, Mode=TwoWay}"/>
+                                </StackLayout>
+                            </Frame>
+                            <ImageButton BackgroundColor="Transparent" Clicked="OpenFilter" VerticalOptions="Center">
+                                <ImageButton.Source>
+                                    <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf232;" Color="White"/>
+                                </ImageButton.Source>
+                            </ImageButton>
+                        </StackLayout>
+                    </Frame>
                     <ScrollView>
                         <ListView
                         HasUnevenRows="True"

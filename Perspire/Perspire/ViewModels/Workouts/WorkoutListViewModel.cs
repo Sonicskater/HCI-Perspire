@@ -13,6 +13,22 @@ namespace Perspire.ViewModels
     {
 
         public ObservableCollection<WorkoutGroupViewModel> WorkoutList { get; set; } = new ObservableCollection<WorkoutGroupViewModel>();
+
+        private String _searchString = "";
+        public String SearchString
+        {
+            get { return _searchString; }
+            set
+            {
+                _searchString = value;
+                
+                foreach (var i in WorkoutList)
+                {
+                    i.filter = value;
+                }
+                
+            }
+        }
         public WorkoutListViewModel()
         {
             var datastore = DependencyService.Resolve<WorkoutRepository>();
@@ -40,6 +56,28 @@ namespace Perspire.ViewModels
         {
             this.workouts = workouts;
             Expanded = true;
+        }
+        private String _filter;
+        public String filter
+        {
+            get { return _filter; }
+            set
+            {
+                _filter = value;
+                OnPropertyChanged(new PropertyChangedEventArgs("Expanded"));
+                OnPropertyChanged(new PropertyChangedEventArgs("Glyph"));
+                Clear();
+                if (_expanded) {
+                    foreach (var i in workouts)
+                    {
+                        if (i.Name.StartsWith(value))
+                        {
+                            Add(i);
+                        }
+
+                    }                
+                }
+            }
         }
         public bool Expanded
         {
