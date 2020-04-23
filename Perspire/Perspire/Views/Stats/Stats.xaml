@@ -27,9 +27,17 @@
             <Grid AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
                 <ScrollView>
                     <StackLayout BackgroundColor="SkyBlue">
-
-                        <controls:GraphedStat Units="lbs." Previous="189"/>
-
+                        <ListView
+                            ItemsSource="{Binding StatList}"
+                            HasUnevenRows="True"
+                            VerticalOptions="StartAndExpand">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <controls:GraphedStat/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                        
                         <Label HorizontalOptions="Center" FontSize="Title" Padding="15" Text="Add more stats ->"/>
                     </StackLayout>
                 </ScrollView>
