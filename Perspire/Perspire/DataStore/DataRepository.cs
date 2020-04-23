@@ -2,6 +2,7 @@
 using Realms;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Perspire.DataStore
@@ -13,45 +14,49 @@ namespace Perspire.DataStore
 
         public DataRepository()
         {
-            var group = new WorkoutGroupModel("Back");
-
-            group.Add(new WorkoutModel
+            // populate db if db is empty
+            if (!realm.All<WorkoutGroupModel>().Any())
             {
-                Name = "Workout 1",
-                Part = "Back",
-                ImageSrc = "tab_about.png",
-                Description = "back workout"
-            });
+                var group = new WorkoutGroupModel("Back");
 
-            group.Add(new WorkoutModel
-            {
-                Name = "Workout 2",
-                Part = "Back",
-                ImageSrc = "tab_about.png",
-                Description = "back workout"
-            });
-            addWorkoutGroup(group);
+                group.Add(new WorkoutModel
+                {
+                    Name = "Workout 1",
+                    Part = "Back",
+                    ImageSrc = "tab_about.png",
+                    Description = "back workout"
+                });
 
-            group = new WorkoutGroupModel("Shoulder");
-            group.Add(new WorkoutModel
-            {
-                Name = "Workout 3",
-                Part = "Shoulder",
-                ImageSrc = "tab_about.png",
-                Description = "back workout"
-            });
+                group.Add(new WorkoutModel
+                {
+                    Name = "Workout 2",
+                    Part = "Back",
+                    ImageSrc = "tab_about.png",
+                    Description = "back workout"
+                });
+                addWorkoutGroup(group);
 
-            group.Add(new WorkoutModel
-            {
-                Name = "Workout 4",
-                Part = "Shoulder",
-                ImageSrc = "tab_about.png",
-                Description = "back workout"
-            });
-            addWorkoutGroup(group);
+                group = new WorkoutGroupModel("Shoulder");
+                group.Add(new WorkoutModel
+                {
+                    Name = "Workout 3",
+                    Part = "Shoulder",
+                    ImageSrc = "tab_about.png",
+                    Description = "back workout"
+                });
+
+                group.Add(new WorkoutModel
+                {
+                    Name = "Workout 4",
+                    Part = "Shoulder",
+                    ImageSrc = "tab_about.png",
+                    Description = "back workout"
+                });
+                addWorkoutGroup(group);
+            }
         }
 
-        public void addWorkout(WorkoutModel workout)
+        public void addWorkout(WorkoutGroupModel group, WorkoutModel workout)
         {
             realm.Write(() =>
             {

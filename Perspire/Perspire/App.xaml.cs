@@ -6,6 +6,7 @@ using Autofac;
 using Perspire.DataStore;
 using Xamarin.Forms.Internals;
 using Perspire.ViewModels;
+using Perspire.ViewModels.Workouts;
 
 namespace Perspire
 {
@@ -25,6 +26,7 @@ namespace Perspire
 
             builder.RegisterType<DataRepository>().SingleInstance();
             builder.RegisterType<WorkoutListViewModel>().SingleInstance();
+            builder.RegisterType<WorkoutEditViewModel>().SingleInstance();
 
             var container = builder.Build();
 

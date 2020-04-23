@@ -1,3 +1,4 @@
+using Perspire.ViewModels.Workouts;
 using System;
 using System.Collections.Generic;
 
@@ -8,16 +9,20 @@ namespace Perspire.Views
 {
     public partial class WorkoutEdit : ContentPage
     {
+        WorkoutEditViewModel data = DependencyService.Resolve<WorkoutEditViewModel>();
         public WorkoutEdit ()
         {
-            InitializeComponent();
+            
 
-            /*
-            image.Source = new UriImageSource()
-            {
-                Uri = new Uri(ImageSrc)
-            };
-            */
+            InitializeComponent();
+            BindingContext = data;
         }
+
+        public void OnClickSave(Object sender, EventArgs e)
+        {
+            data.Save();
+        }
+
+
     }
 }

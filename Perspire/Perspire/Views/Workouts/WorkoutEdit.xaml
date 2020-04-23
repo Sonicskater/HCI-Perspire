@@ -11,7 +11,7 @@
     <ContentPage.Content>
         <StackLayout BackgroundColor="LightGray" Padding="5" Spacing="10">
             <StackLayout Orientation="Horizontal">
-                <Entry Placeholder="Workout Name" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+                <Entry Placeholder="Workout Name" Text="{Binding WorkoutName}" FontSize="Large" HorizontalOptions="FillAndExpand"/>
             </StackLayout>
             <Frame BackgroundColor="Gray">
                 <Image
@@ -30,7 +30,8 @@
                 
                 Margin="20,20"
                 FontSize="Small"
-                    Placeholder="Description"/>
+                    Placeholder="Description"
+                    Text="{Binding WorkoutDescription}"/>
             </Frame>
             <StackLayout Orientation="Horizontal">
                 <Label Text="Weights involved:" VerticalOptions="Center" FontSize="Medium"/>
@@ -41,7 +42,7 @@
 
             <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
                 <Button Text="Back" BackgroundColor="LightSteelBlue" CornerRadius="5" />
-                <Button Text="Save" BackgroundColor="LightGreen" CornerRadius="5" HorizontalOptions="EndAndExpand"/>
+                <Button Text="Save" BackgroundColor="LightGreen" CornerRadius="5" HorizontalOptions="EndAndExpand" Clicked="OnClickSave"/>
             </StackLayout>
 
         </StackLayout>
