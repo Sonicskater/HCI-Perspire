@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Collections.Specialized;
 using System.ComponentModel;
 using System.Windows.Input;
 using Perspire.DataStore;
@@ -29,13 +30,20 @@ namespace Perspire.ViewModels
                 
             }
         }
+        DataRepository datastore = DependencyService.Resolve<DataRepository>();
+        
+        
+
         public WorkoutListViewModel()
         {
-            var datastore = DependencyService.Resolve<DataRepository>();
-            foreach (var i in datastore.getWorkoutPrograms())
+            var datalist = datastore.getWorkoutPrograms();
+
+
+            foreach (var i in datalist)
             {
                 WorkoutList.Add(new WorkoutGroupViewModel(i));
             }
+
         }
 
 
@@ -56,26 +64,35 @@ namespace Perspire.ViewModels
         {
             this.workouts = workouts;
             Expanded = true;
+
+            workouts.PropertyChanged += (sender, e) => {
+                Update();
+            };
         }
-        private String _filter;
+        private String _filter ="";
         public String filter
         {
             get { return _filter; }
             set
             {
                 _filter = value;
-                OnPropertyChanged(new PropertyChangedEventArgs("Expanded"));
-                OnPropertyChanged(new PropertyChangedEventArgs("Glyph"));
-                Clear();
-                if (_expanded) {
-                    foreach (var i in workouts)
+                Update();      
+            }
+        }
+        public void Update()
+        {
+            OnPropertyChanged(new PropertyChangedEventArgs("Expanded"));
+            OnPropertyChanged(new PropertyChangedEventArgs("Glyph"));
+            Clear();
+            if (_expanded)
+            {
+                foreach (var i in workouts)
+                {
+                    if (i.Name.ToLower().StartsWith(_filter.ToLower()))
                     {
-                        if (i.Name.ToLower().StartsWith(value.ToLower()))
-                        {
-                            Add(i);
-                        }
+                        Add(i);
+                    }
 
-                    }                
                 }
             }
         }
@@ -90,20 +107,7 @@ namespace Perspire.ViewModels
                 if (_expanded != value)
                 {
                     _expanded = value;
-                    OnPropertyChanged(new PropertyChangedEventArgs("Expanded"));
-                    OnPropertyChanged(new PropertyChangedEventArgs("Glyph"));
-                    if (_expanded)
-                    {
-                        foreach (var i in workouts)
-                        {
-                            Add(i);
-                        }
-                    }
-                    else
-                    {
-                        Clear();
-                    }
-
+                    Update();
                 }
             }
         }

@@ -3,14 +3,17 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+
              xmlns:controls="clr-namespace:Perspire.Controls"
+             xmlns:oxy="clr-namespace:OxyPlot.Xamarin.Forms;assembly=OxyPlot.Xamarin.Forms"
              mc:Ignorable="d"
              x:Class="Perspire.Controls.GraphedStat"
              x:Name="StatsPage">
   <ContentView.Content>
         <controls:NestedDropCard>
             <controls:NestedDropCard.Top>
-                <StackLayout>
+                <StackLayout Margin="0">
+
                     <StackLayout Orientation="Horizontal">
                         <Label FontSize="Title">
                             Weight
@@ -24,7 +27,11 @@
                             </ImageButton.Source>
                         </ImageButton>
                     </StackLayout>
-                    <BoxView WidthRequest="100" HeightRequest="100" Color="Gray"/>
+
+
+                    <oxy:PlotView Model="{Binding PieModel}" WidthRequest="200" HeightRequest="100"/>
+
+
                     <StackLayout Orientation="Horizontal">
                         <Label HorizontalOptions="StartAndExpand" FontSize="30" VerticalOptions="Center" x:Name="previous"/>
                         <Label Text="" FontSize="30" HorizontalOptions="Start" VerticalOptions="Center" x:Name="units1"/>

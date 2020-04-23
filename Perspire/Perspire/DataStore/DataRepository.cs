@@ -58,9 +58,12 @@ namespace Perspire.DataStore
 
         public void addWorkout(WorkoutGroupModel group, WorkoutModel workout)
         {
+            
             realm.Write(() =>
             {
-                realm.Add(workout);
+                group.Add(workout);
+                realm.Add(group, true);
+                realm.Add(workout, true);
             });
         }
 

@@ -1,7 +1,10 @@
-﻿using Perspire.Models;
+﻿using Perspire.DataStore;
+using Perspire.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using Xamarin.Forms;
 
 namespace Perspire.ViewModels.Workouts
 {
@@ -15,7 +18,7 @@ namespace Perspire.ViewModels.Workouts
 
         public string WorkoutDescription { get; set; }
 
-
+        DataRepository datastore = DependencyService.Resolve<DataRepository>();
 
         public void Save()
         {
@@ -27,6 +30,8 @@ namespace Perspire.ViewModels.Workouts
 
             System.Console.WriteLine("Saving workout| Name: " + obj.Name);
             System.Console.WriteLine("Saving workout| Description: " + obj.Description);
+
+            datastore.addWorkout(datastore.getWorkoutPrograms().First(), obj);
         }
     }
 }
