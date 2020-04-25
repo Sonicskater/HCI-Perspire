@@ -5,23 +5,25 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Perspire.Views.Workouts.WorkoutListItem">
-    <Frame Margin="15">
-        <Grid Padding="2">
+    <Frame Margin="10"
+           Padding="0">
+        <Grid Padding="0"
+              Margin="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="100" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Image
                                     Grid.RowSpan="2"
                                     Aspect="AspectFill"
-                                    HeightRequest="60"
+
                                     Source="{Binding ImageSrc}"
-                                    WidthRequest="60" />
+                                    HeightRequest="80" />
             <Label
                                     Grid.Column="1"
                                     FontAttributes="Bold"

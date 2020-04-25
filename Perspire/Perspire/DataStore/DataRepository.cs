@@ -20,7 +20,7 @@ namespace Perspire.DataStore
                 group.Add(new WorkoutModel
                 {
                     Name = "Workout 1",
-                    ImageSrc = "tab_about.png",
+                    ImageSrc = "download.jpg",
                     Description = "back workout"
                 });
 

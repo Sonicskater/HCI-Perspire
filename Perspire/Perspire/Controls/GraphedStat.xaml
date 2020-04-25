@@ -37,20 +37,15 @@
             </StackLayout>
         </controls:NestedDropCard.Top>
         <controls:NestedDropCard.Bottom>
-            <ListView ItemsSource="{Binding Entries}"
-                          HasUnevenRows="True"
-                      VerticalOptions="Start"
-                      HeightRequest="100">
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <ViewCell>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Blorp" />
-                                </StackLayout>
-                            </ViewCell>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+            <StackLayout BindableLayout.ItemsSource="{Binding Entries}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="Blorp" />
+                        </StackLayout>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </StackLayout>
         </controls:NestedDropCard.Bottom>
     </controls:NestedDropCard>
 </ViewCell>
