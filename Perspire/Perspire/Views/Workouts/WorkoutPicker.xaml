@@ -1,0 +1,81 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Perspire.Views.WorkoutPicker"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls ="clr-namespace:Perspire.Controls"
+    xmlns:local ="clr-namespace:Perspire.Views.Workouts"
+    mc:Ignorable="d">
+    <ContentPage.Resources>
+        <Color x:Key="NavigationPrimary">#2196F3</Color>
+        <Color x:Key="DarkButtonBackground">#2eab18</Color>
+        <Style x:Key="FABPrimary" TargetType="Button">
+            <Setter Property="CornerRadius" Value="100"/>
+            <Setter Property="BackgroundColor" Value="{StaticResource DarkButtonBackground}"/>
+            <Setter Property="HeightRequest" Value="55"/>
+            <Setter Property="WidthRequest" Value="55"/>
+            <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+            <Setter Property="VerticalOptions" Value="CenterAndExpand"/>
+            <Setter Property="Padding" Value="15"/>
+            <Setter Property="Margin" Value="0,0,0,15"/>
+        </Style>
+
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <AbsoluteLayout>
+            <Grid AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All">
+                <StackLayout Spacing="0" BackgroundColor="LightBlue">
+                    <Frame Padding="10" BackgroundColor="{StaticResource NavigationPrimary}" BorderColor="{StaticResource NavigationPrimary}" CornerRadius="0" HasShadow="True">
+                        <StackLayout Orientation="Horizontal">
+                            <Frame CornerRadius="50" Padding="5" HorizontalOptions="FillAndExpand">
+                                <StackLayout Orientation="Horizontal">
+                                    <Image>
+                                        <Image.Source>
+                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf349;" Color="Gray"/>
+                                        </Image.Source>
+                                    </Image>
+                                    <Entry HorizontalOptions="FillAndExpand" Text="{Binding SearchString, Mode=TwoWay}"/>
+                                </StackLayout>
+                            </Frame>
+                            <ImageButton BackgroundColor="Transparent" Clicked="OpenFilter" VerticalOptions="Center">
+                                <ImageButton.Source>
+                                    <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf232;" Color="White"/>
+                                </ImageButton.Source>
+                            </ImageButton>
+                        </StackLayout>
+                    </Frame>
+                    <ScrollView>
+                        <ListView
+                        HasUnevenRows="True"
+                        ItemTapped="OnItemSelected"
+                        IsGroupingEnabled="true" 
+                        ItemsSource="{Binding WorkoutList, Mode=OneWay}"
+                        SeparatorVisibility="None" SeparatorColor="Transparent"
+                        >
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <local:WorkoutListItem/>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                            
+                            <ListView.GroupHeaderTemplate>
+                                <DataTemplate>
+                                    <local:WorkoutListGroup/>
+                                </DataTemplate>
+                            </ListView.GroupHeaderTemplate>
+                            
+                        </ListView>
+                    </ScrollView>
+                </StackLayout>
+            </Grid>
+            <Button AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.98,1, AutoSize, AutoSize" Style="{StaticResource FABPrimary}" BorderWidth="0" BorderColor="Black" Clicked="Button_Clicked">
+                <Button.ImageSource>
+                    <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#x000f0217;" Color="White"/>
+                </Button.ImageSource>
+            </Button>
+        </AbsoluteLayout>
+    </ContentPage.Content>
+</ContentPage>

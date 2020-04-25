@@ -29,6 +29,7 @@ namespace Perspire
             builder.RegisterType<WorkoutEditViewModel>();
             builder.RegisterType<WorkoutDetailViewModel>();
             builder.RegisterType<ProgramEditViewModel>();
+            builder.RegisterType<WorkoutPickerViewModel>();
             builder.RegisterType<NewStatViewModel>();
             builder.RegisterType<StatsViewModel>().SingleInstance();
             builder.RegisterType<ProgramListViewModel>().SingleInstance();

@@ -13,14 +13,18 @@
             <Picker Title="Category" IsVisible="{Binding Creation}"/>
             <Entry Placeholder="Description" Text="{Binding Description}"/>
             <Frame BackgroundColor="DarkGray" Padding="5,0,5,0">
-                <ListView>
+                <ListView
+                    ItemsSource="{Binding workouts}"
+                    HasUnevenRows="True"
+                    >
+
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <Frame BackgroundColor="LightGray">
                                     <StackLayout>
                                         <StackLayout Orientation="Horizontal">
-                                            <Picker ItemsSource=""/>
+                                            <Label Text="{Binding WorkoutName}" VerticalOptions="Center"/>
                                             <Entry Placeholder="Time/Reps" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
                                             <Entry Placeholder="Weeks"/>
                                             <Button Text="Delete" HorizontalOptions="EndAndExpand" BackgroundColor="Maroon"/>
