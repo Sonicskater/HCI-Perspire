@@ -25,9 +25,9 @@
                                     <StackLayout>
                                         <StackLayout Orientation="Horizontal">
                                             <Label Text="{Binding WorkoutName}" VerticalOptions="Center"/>
-                                            <Entry Placeholder="Time/Reps" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
-                                            <Entry Placeholder="Weeks"/>
-                                            <Button Text="Delete" HorizontalOptions="EndAndExpand" BackgroundColor="Maroon"/>
+                                            <Entry Placeholder="Time/Reps" Text="{Binding reps}" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Keyboard="Numeric"/>
+                                            <Entry Placeholder="Weeks" Text="{Binding weeks}" Keyboard="Numeric"/>
+                                            <Button Text="Delete" HorizontalOptions="EndAndExpand" BackgroundColor="Maroon" Clicked ="Button_Clicked_1"/>
                                         </StackLayout>
                                         <Grid HorizontalOptions="CenterAndExpand">
                                             <Label Text="S" Grid.Column="0"/>
@@ -39,13 +39,13 @@
                                             <Label Text="S" Grid.Column="6"/>
                                         </Grid>
                                         <Grid HorizontalOptions="CenterAndExpand">
-                                            <CheckBox Grid.Column="0"/>
-                                            <CheckBox Grid.Column="1"/>
-                                            <CheckBox Grid.Column="2"/>
-                                            <CheckBox Grid.Column="3"/>
-                                            <CheckBox Grid.Column="4"/>
-                                            <CheckBox Grid.Column="5"/>
-                                            <CheckBox Grid.Column="6"/>
+                                            <CheckBox Grid.Column="0" IsChecked="{Binding sunday}"/>
+                                            <CheckBox Grid.Column="1" IsChecked="{Binding monday}"/>
+                                            <CheckBox Grid.Column="2" IsChecked="{Binding tuesday}"/>
+                                            <CheckBox Grid.Column="3" IsChecked="{Binding wendsday}"/>
+                                            <CheckBox Grid.Column="4" IsChecked="{Binding thursday}"/>
+                                            <CheckBox Grid.Column="5" IsChecked="{Binding friday}"/>
+                                            <CheckBox Grid.Column="6" IsChecked="{Binding saturday}"/>
                                         </Grid>
                                     </StackLayout>
                                 </Frame>
@@ -58,7 +58,7 @@
             <Frame VerticalOptions="End">
                 <StackLayout Orientation="Horizontal">
                     <Button Text="Cancel" HorizontalOptions="FillAndExpand" BackgroundColor="DarkRed"/>
-                    <Button Text="Save" HorizontalOptions="FillAndExpand" BackgroundColor="DarkGreen"/>
+                    <Button Text="Save" HorizontalOptions="FillAndExpand" BackgroundColor="DarkGreen" Clicked="Button_Clicked_2"/>
                 </StackLayout>
             </Frame>
         </StackLayout>

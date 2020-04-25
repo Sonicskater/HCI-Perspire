@@ -40,5 +40,17 @@ namespace Perspire.Views
 
             vm.AddWorkout(result);
         }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            var obj = (ProgramWorkoutVM)((Button)sender).BindingContext;
+
+            vm.removeWorkout(obj);
+        }
+
+        private void Button_Clicked_2(object sender, EventArgs e)
+        {
+            vm.Save();
+        }
     }
 }
