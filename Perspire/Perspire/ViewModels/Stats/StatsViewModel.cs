@@ -3,6 +3,7 @@ using OxyPlot.Axes;
 using OxyPlot.Series;
 using Perspire.DataStore;
 using Perspire.Models;
+using Realms;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -16,17 +17,29 @@ namespace Perspire.ViewModels
     {
         public ObservableCollection<StatViewModel> StatList { get; set; } = new ObservableCollection<StatViewModel>();
 
+        private IQueryable<StatModel> data; 
         public StatsViewModel()
         {
-            var data = Xamarin.Forms.DependencyService.Resolve<Perspire.DataStore.DataRepository>();
+            var vm = Xamarin.Forms.DependencyService.Resolve<Perspire.DataStore.DataRepository>();
+            data = vm.getStats();
+            var p = data.AsRealmCollection();
+            p.PropertyChanged += (a, b) =>
+            {
+                Update();
+            };
+            Update();
+        }
 
-            foreach ( var i in data.getStats())
+        public void Update()
+        {
+            StatList.Clear();
+            foreach (var i in data)
             {
                 StatList.Add(new StatViewModel(i));
             }
 
         }
-        
+
     }
 
     class StatViewModel : BaseViewModel

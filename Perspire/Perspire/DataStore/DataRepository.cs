@@ -224,7 +224,7 @@ namespace Perspire.DataStore
             return realm.All <ProgramGroupModel>();
         }
 
-        public IEnumerable<StatModel> getStats()
+        public IQueryable<StatModel> getStats()
         {
             return realm.All<StatModel>();
         }

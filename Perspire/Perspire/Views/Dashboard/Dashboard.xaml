@@ -222,52 +222,61 @@
                 </StackLayout>
                 
                 <!-- Stats -->
-                <StackLayout Padding="10,10,10,10">
-                    <StackLayout Orientation="Horizontal">
-                        <Label FontSize="Large" Padding="10,0,0,0">Stats</Label>
-                        <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.2" Color="Black"></BoxView>
-                    </StackLayout>
-                    <controls:NestedDropCard>
-                        <controls:NestedDropCard.Top>
-                            <Grid>
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                </Grid.ColumnDefinitions>
-                                <Label FontSize="Medium" VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Text="Weight"/>
-                                <Label VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Text="198 lbs."/>
-                                <Label FontSize="Medium" VerticalOptions="Center" Grid.Row="0" Grid.Column="2" Text="->"/>
-                                <Entry VerticalOptions="End" Grid.Row="0" Grid.Column="3" MaxLength="4" WidthRequest="60" Placeholder="New" Keyboard="Numeric"/>
-                                <Label VerticalOptions="Center" Grid.Column="4" Text="lbs."/>
-                            </Grid>
-                        </controls:NestedDropCard.Top>
-                        <controls:NestedDropCard.Bottom>
-                            <StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Date"/>
-                                    <Label HorizontalOptions="EndAndExpand" Text="Old Value lbs."/>
-                                </StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Date"/>
-                                    <Label HorizontalOptions="EndAndExpand" Text="Old Value lbs."/>
-                                </StackLayout>
-                                <StackLayout Orientation="Horizontal">
-                                    <Label Text="Date"/>
-                                    <Label HorizontalOptions="EndAndExpand" Text="Old Value lbs."/>
-                                </StackLayout>
-                            </StackLayout>
-                        </controls:NestedDropCard.Bottom>
-                    </controls:NestedDropCard>
-                    <Label FontSize="Medium" HorizontalOptions="Center">See All</Label>
+                    <StackLayout BindingContext="{Binding StatsContext}">
 
-                </StackLayout>
-              
+
+
+                        <StackLayout Orientation="Horizontal">
+                            <Label FontSize="Large" Padding="10,0,0,0">Statistics</Label>
+                            <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.2" Color="Black"></BoxView>
+
+                        </StackLayout>
+                        <StackLayout  BindableLayout.ItemsSource="{Binding StatList }">
+                            <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <controls:NestedDropCard>
+                                    <controls:NestedDropCard.Top>
+                                        <Grid>
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="Auto"/>
+                                            </Grid.RowDefinitions>
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Label FontSize="Medium" VerticalOptions="Center" Grid.Row="0" Grid.Column="0" Text="{Binding Name}"/>
+                                            <Label VerticalOptions="Center" Grid.Row="0" Grid.Column="1" Text="{Binding Previous}"/>
+                                            <Label VerticalOptions="Center" Grid.Row="0" Grid.Column="2" Text="{Binding Units}"/>
+                                            <Label FontSize="Medium" VerticalOptions="Center" Grid.Row="0" Grid.Column="3" Text="->"/>
+                                            <Entry VerticalOptions="End" Grid.Row="0" Grid.Column="4" 
+                                                   MaxLength="4" WidthRequest="60" 
+                                                   Placeholder="New" Text="{Binding Entry, Mode=TwoWay}" Completed="Entry_Completed"
+                                                   Keyboard="Numeric"/>
+                                            <Label VerticalOptions="Center" Grid.Column="5" Text="{Binding Units}"/>
+                                        </Grid>
+                                    </controls:NestedDropCard.Top>
+                                    <controls:NestedDropCard.Bottom>
+                                        <StackLayout BindableLayout.ItemsSource="{Binding Entries}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <StackLayout Orientation="Horizontal">
+                                                        <Label Text="Blorp" />
+                                                    </StackLayout>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </StackLayout>
+                                    </controls:NestedDropCard.Bottom>
+                                </controls:NestedDropCard>
+                            </DataTemplate>
+                            </BindableLayout.ItemTemplate>
+
+                        </StackLayout>
+                    </StackLayout>
+
             </StackLayout>
         </ScrollView>
     </ContentPage.Content>

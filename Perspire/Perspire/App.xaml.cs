@@ -15,13 +15,6 @@ namespace Perspire
 
         public App()
         {
-            InitializeComponent();
-
-            MainPage = new AppShell();
-        }
-
-        protected override void OnStart()
-        {
             var builder = new ContainerBuilder();
 
             builder.RegisterType<DataRepository>().SingleInstance();
@@ -35,9 +28,20 @@ namespace Perspire
             builder.RegisterType<ProgramListViewModel>().SingleInstance();
             builder.RegisterType<ProgramDetailViewModel>();
 
+            builder.RegisterType<DashBoardViewModel>();
+
             var container = builder.Build();
 
             DependencyResolver.ResolveUsing(type => container.IsRegistered(type) ? container.Resolve(type) : null);
+
+            InitializeComponent();
+
+            MainPage = new AppShell();
+        }
+
+        protected override void OnStart()
+        {
+
         }
 
         protected override void OnSleep()
