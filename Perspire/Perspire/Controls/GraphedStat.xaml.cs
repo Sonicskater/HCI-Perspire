@@ -3,6 +3,7 @@ using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 using Perspire.Models;
+using Perspire.ViewModels;
 using System;
 using System.Collections.Generic;
 
@@ -27,7 +28,7 @@ namespace Perspire.Controls
 
         private void Entry_Completed(object sender, EventArgs e)
         {
-            System.Console.WriteLine("Hi");
+            ((StatViewModel)BindingContext).SaveNew();
         }
     }
 }

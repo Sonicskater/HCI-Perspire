@@ -28,12 +28,13 @@ namespace Perspire.Views
         private async void OnItemSelected(Object sender, ItemTappedEventArgs e)
         {
             var details = e.Item as WorkoutModel;
-            await Navigation.PushModalAsync(new WorkoutListDetail(details.Name, details.Description, details.ImageSrc));
+            //await Navigation.PushModalAsync(new WorkoutListDetail(details));
+            await Shell.Current.GoToAsync($"WorkoutDetail?name={details.Name}");
         }
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new WorkoutEdit());
+            await Shell.Current.GoToAsync("WorkoutEdit");
         }
     }
 }

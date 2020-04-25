@@ -9,7 +9,12 @@ namespace Perspire
     {
         public AppShell()
         {
+            
             InitializeComponent();
+
+            Routing.RegisterRoute("WorkoutDetail", typeof(Perspire.Views.WorkoutListDetail));
+            Routing.RegisterRoute("WorkoutEdit", typeof(Perspire.Views.WorkoutEdit));
+            Routing.RegisterRoute("ProgramEdit", typeof(Perspire.Views.NewProgram));
         }
     }
 }

@@ -1,82 +1,68 @@
+﻿using Perspire.DataStore;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Collections.Specialized;
 using System.ComponentModel;
-using System.Windows.Input;
-using Perspire.DataStore;
-using Perspire.Models;
+using System.Text;
 using Xamarin.Forms;
 
 namespace Perspire.ViewModels
 {
-    public class WorkoutListViewModel : BaseViewModel
+    public class ProgramListViewModel : BaseViewModel
     {
+        public ObservableCollection<ProgramGroupViewModel> ProgramGroups { get; set; }  = new ObservableCollection<ProgramGroupViewModel>();
 
-        public ObservableCollection<WorkoutGroupViewModel> WorkoutList { get; set; } = new ObservableCollection<WorkoutGroupViewModel>();
 
-        private String _searchString = "";
-        public String SearchString
+        DataRepository data = DependencyService.Resolve<DataRepository>();
+
+        public ProgramListViewModel()
         {
-            get { return _searchString; }
-            set
+            ProgramGroups.Add(new ProgramGroupViewModel(new ProgramGroupModel
             {
-                _searchString = value;
-                
-                foreach (var i in WorkoutList)
-                {
-                    i.filter = value;
-                }
-                
+                Name = "Current",
+                programs = { data.GetUserData().currentProgram }
+            }));
+            foreach (var i in data.getProgramGroups())
+            {
+                ProgramGroups.Add(new ProgramGroupViewModel(i));
             }
         }
-        DataRepository datastore = DependencyService.Resolve<DataRepository>();
-        
-        
 
-        public WorkoutListViewModel()
+
+        private async void OnItemSelected(Object sender, ItemTappedEventArgs e)
         {
-            var datalist = datastore.getWorkoutGroups();
-
-
-            foreach (var i in datalist)
-            {
-                WorkoutList.Add(new WorkoutGroupViewModel(i));
-            }
-
+            var details = e.Item as ProgramModel;
+            // await Navigation.PushModalAsync(new WorkoutListDetail(details.Name, details.Description, details.ImageSrc));
         }
 
-
-
-        public void ToggleVis(int index)
+        private async void Button_Clicked(object sender, EventArgs e)
         {
-            WorkoutList[index].Expanded = !WorkoutList[index].Expanded;
+            //await Navigation.PushModalAsync(new WorkoutEdit());
         }
     }
 
-
-    public class WorkoutGroupViewModel : ObservableCollection<WorkoutModel>, IEquatable<WorkoutGroupViewModel>
+    public class ProgramGroupViewModel : ObservableCollection<ProgramModel>, IEquatable<ProgramGroupViewModel>
     {
-        private WorkoutGroupModel workouts;
+        private ProgramGroupModel programs;
         private bool _expanded = false;
 
-        public WorkoutGroupViewModel(WorkoutGroupModel workouts) : base()
+        public ProgramGroupViewModel(ProgramGroupModel programs) : base()
         {
-            this.workouts = workouts;
+            this.programs = programs;
             Expanded = true;
 
-            workouts.PropertyChanged += (sender, e) => {
+            programs.PropertyChanged += (sender, e) => {
                 Update();
             };
         }
-        private String _filter ="";
+        private String _filter = "";
         public String filter
         {
             get { return _filter; }
             set
             {
                 _filter = value;
-                Update();      
+                Update();
             }
         }
         public void Update()
@@ -86,7 +72,7 @@ namespace Perspire.ViewModels
             Clear();
             if (_expanded)
             {
-                foreach (var i in workouts)
+                foreach (var i in programs.programs)
                 {
                     if (i.Name.ToLower().StartsWith(_filter.ToLower()))
                     {
@@ -132,11 +118,11 @@ namespace Perspire.ViewModels
         {
             get
             {
-                return workouts.Name;
+                return programs.Name;
             }
         }
 
-        bool IEquatable<WorkoutGroupViewModel>.Equals(WorkoutGroupViewModel other)
+        bool IEquatable<ProgramGroupViewModel>.Equals(ProgramGroupViewModel other)
         {
             return this.Name == other.Name;
         }
@@ -145,6 +131,6 @@ namespace Perspire.ViewModels
         {
             this.Expanded = !this.Expanded;
         }
+        
     }
-
 }

@@ -1,3 +1,6 @@
+using Perspire.DataStore;
+using Perspire.Models;
+using Perspire.ViewModels.Workouts;
 using System;
 using System.Collections.Generic;
 
@@ -6,21 +9,41 @@ using Xamarin.Forms.Xaml;
 
 namespace Perspire.Views
 {
+    [QueryProperty("Name", "name")]
     public partial class WorkoutListDetail : ContentPage
     {
-        public WorkoutListDetail (string Name, string Description, string ImageSrc)
+
+        WorkoutDetailViewModel data = DependencyService.Resolve<WorkoutDetailViewModel>();
+
+        public WorkoutListDetail()
         {
             InitializeComponent();
 
-            name.Text = Name;
-            description.Text = Description;
-            image.Source = ImageSrc;
-            /*
-            image.Source = new UriImageSource()
+            BindingContext = data;
+
+        }
+
+        public string Name
+        {
+            set
             {
-                Uri = new Uri(ImageSrc)
-            };
-            */
+                data.MName = Uri.UnescapeDataString(value);
+            }
+        }
+
+
+        private async void Back(object sender, EventArgs e)
+        {
+            await Shell.Current.Navigation.PopAsync();
+        }
+        private async void Ediit(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync($"WorkoutEdit?name={data.MName}");
+        }
+
+        private void Button_Clicked(object sender, EventArgs e)
+        {
+
         }
     }
 }

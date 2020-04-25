@@ -1,4 +1,4 @@
-﻿using Perspire.DataStore;
+using Perspire.DataStore;
 using Perspire.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -12,28 +12,39 @@ using Xamarin.Forms.Xaml;
 namespace Perspire.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    [QueryProperty("Name", "name")]
-    public partial class NewProgram : ContentPage
+    [QueryProperty("Name","name")]
+    public partial class ProgramDetail : ContentPage
     {
-        ProgramEditViewModel vm = DependencyService.Resolve<ProgramEditViewModel>();
-
+        private string _Name;
         public string Name
         {
             set
             {
-                vm.Name = Uri.UnescapeDataString(value);
+                _Name = value;
             }
         }
-        public NewProgram()
+
+        public ProgramDetail(ProgramModel model)
         {
+            var data = DependencyService.Resolve<ProgramDetailViewModel>();
             InitializeComponent();
-            BindingContext = vm;
-            
+            BindingContext = data;
+
+            data.LoadProgram(model);
+            Name = model.Name;
+
         }
 
+        
+        
         private async void Button_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new WorkoutList());
+        }
+
+        private async void Ediit(object sender, EventArgs e)
+        {
+            await Shell.Current.GoToAsync($"ProgramEdit?name={_Name}");
         }
     }
 }

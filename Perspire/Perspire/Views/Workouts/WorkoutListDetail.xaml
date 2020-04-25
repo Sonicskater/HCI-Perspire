@@ -6,13 +6,14 @@
     xmlns:controls="clr-namespace:Perspire.Controls"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    >
 
     <ContentPage.Content>
         <StackLayout BackgroundColor="LightGray" Padding="5" Spacing="10">
             <StackLayout Orientation="Horizontal">
-                <Label x:Name="name" FontSize="Large" />
-                <ImageButton HorizontalOptions="EndAndExpand">
+                <Label Text="{Binding Name}"  FontSize="Large" />
+                <ImageButton HorizontalOptions="EndAndExpand" Clicked="Ediit">
                     <ImageButton.Source>
                         <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#x000f037e;" Color="DarkGray"/>
                     </ImageButton.Source>
@@ -20,38 +21,38 @@
             </StackLayout>
             <Frame BackgroundColor="Gray">
                 <Image
-                x:Name="image"
                 HeightRequest="100"
-                WidthRequest="100" />
+                WidthRequest="100" 
+                    Source="{Binding ImgSrc}"/>
             </Frame>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Category" FontSize="Medium"/>
-                <Label Text="Est. Time" FontSize="Medium" HorizontalOptions="EndAndExpand"/>
+                <Label Text="{Binding Time}" FontSize="Medium" HorizontalOptions="EndAndExpand"/>
+                <Label Text="mins" FontSize="Medium" HorizontalOptions="End"/>
             </StackLayout>
             
             <Frame BackgroundColor="White">
                 <Label
-                x:Name="description"
                 Margin="20,20"
                 FontSize="Small"
-                    Text="Description"/>
+                    Text="{Binding Desc}"/>
             </Frame>
 
             <Frame BackgroundColor="LightGreen">
                 <StackLayout>
                     <StackLayout Orientation="Horizontal">
-                        <Entry Placeholder="Reps" HorizontalOptions="FillAndExpand"/>
+                        <Entry Placeholder="{Binding WorkoutUnits}" HorizontalOptions="FillAndExpand"/>
+                        <Label Text="{Binding WorkoutUnits}" VerticalOptions="Center"/>
                         <DatePicker HorizontalOptions="FillAndExpand"/>
                     </StackLayout>
-                    <Entry Placeholder="Weights"/>
-                    <Button Text="Record"/>
+                    <Entry Placeholder="Weight" IsVisible="{Binding Weights}"/>
+                    <Button Text="Record" Clicked="Button_Clicked"/>
                     
                 </StackLayout>
             </Frame>
 
 
             <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
-                <Button Text="Back" BackgroundColor="LightSteelBlue" CornerRadius="5" />
+                <Button Text="Back" BackgroundColor="LightSteelBlue" CornerRadius="5" Clicked="Back" />
             </StackLayout>
 
         </StackLayout>

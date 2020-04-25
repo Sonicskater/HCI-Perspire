@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="Perspire.Views.ProgramDetail"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    BackgroundColor="White"
+    mc:Ignorable="d">
+    <ContentPage.Content>
+        <StackLayout Padding="0">
+            <StackLayout Orientation="Horizontal">
+                <Label FontSize="Medium" Text="{Binding ProgramName}"  />
+                <ImageButton HorizontalOptions="EndAndExpand" Clicked="Ediit">
+                    <ImageButton.Source>
+                        <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#x000f037e;" Color="DarkGray"/>
+                    </ImageButton.Source>
+                </ImageButton>
+            </StackLayout>
+
+            <BoxView BackgroundColor="Gray" HeightRequest="100" />
+            <Label FontSize="Medium" Text="{Binding Category}" />
+            <Label FontSize="Medium" Text="{Binding Description}" />
+            <Frame Padding="5,5,5,0" BackgroundColor="DarkGray">
+                <ListView ItemsSource="{Binding workouts}" 
+                          HasUnevenRows="True"
+                          VerticalOptions="StartAndExpand">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame BackgroundColor="White">
+                                    <StackLayout VerticalOptions="StartAndExpand">
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="{Binding workout.Name}" VerticalOptions="Center" />
+                                            <Label
+                                        HorizontalOptions="EndAndExpand"
+                                        Text="{Binding reps}"
+                                        VerticalOptions="Center" />
+                                            <Label
+                                        HorizontalOptions="StartAndExpand"
+                                        Text="{Binding workout.Units}"
+                                        VerticalOptions="Center" />
+                                            <Label Text="{Binding weeks}" VerticalOptions="EndAndExpand" />
+                                            <Label Text="Weeks" VerticalOptions="Center" />
+                                        </StackLayout>
+                                        <Grid HorizontalOptions="CenterAndExpand">
+                                            <Label Grid.Column="0" Text="S" />
+                                            <Label Grid.Column="1" Text="M" />
+                                            <Label Grid.Column="2" Text="T" />
+                                            <Label Grid.Column="3" Text="W" />
+                                            <Label Grid.Column="4" Text="T" />
+                                            <Label Grid.Column="5" Text="F" />
+                                            <Label Grid.Column="6" Text="S" />
+                                        </Grid>
+                                        <Grid HorizontalOptions="CenterAndExpand">
+                                            <CheckBox Grid.Column="0" IsEnabled="false" IsChecked="{Binding sunday}"/>
+                                            <CheckBox Grid.Column="1" IsEnabled="false" IsChecked="{Binding monday}"/>
+                                            <CheckBox Grid.Column="2" IsEnabled="false" IsChecked="{Binding tuesday}"/>
+                                            <CheckBox Grid.Column="3" IsEnabled="false" IsChecked="{Binding wendsday}"/>
+                                            <CheckBox Grid.Column="4" IsEnabled="false" IsChecked="{Binding thursday}"/>
+                                            <CheckBox Grid.Column="5" IsEnabled="false" IsChecked="{Binding friday}"/>
+                                            <CheckBox Grid.Column="6" IsEnabled="false" IsChecked="{Binding saturday}"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </Frame>
+            <Frame VerticalOptions="End">
+                <StackLayout Orientation="Horizontal">
+                    <Button
+                        BackgroundColor="DarkRed"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Cancel" />
+                    <Button
+                        BackgroundColor="DarkGreen"
+                        HorizontalOptions="FillAndExpand"
+                        Text="Set Current" />
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

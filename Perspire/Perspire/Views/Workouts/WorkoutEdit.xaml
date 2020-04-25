@@ -6,23 +6,38 @@
     xmlns:controls="clr-namespace:Perspire.Controls"
     xmlns:d="http://xamarin.com/schemas/2014/forms/design"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d">
+    mc:Ignorable="d"
+    Shell.PresentationMode="ModalAnimated">
 
     <ContentPage.Content>
         <StackLayout BackgroundColor="LightGray" Padding="5" Spacing="10">
             <StackLayout Orientation="Horizontal">
-                <Entry Placeholder="Workout Name" Text="{Binding WorkoutName}" FontSize="Large" HorizontalOptions="FillAndExpand"/>
+                <Entry Placeholder="Workout Name" 
+                       Text="{Binding WorkoutName}" 
+                       FontSize="Large" HorizontalOptions="FillAndExpand"
+                       IsReadOnly="{Binding NotCreation}"
+                       x:Name="NameField"/>
             </StackLayout>
             <Frame BackgroundColor="Gray">
                 <Image
                 x:Name="image"
                 HeightRequest="100"
-                WidthRequest="100" />
+                WidthRequest="100"
+                    Source="{Binding ImgSrc}"/>
             </Frame>
             <StackLayout Orientation="Horizontal">
-                <Entry Placeholder="Category" FontSize="Medium"/>
-                <Entry Placeholder="Units"/>
-                <Entry Placeholder="Est. Time" FontSize="Medium" HorizontalOptions="EndAndExpand"/>
+                <Picker ItemsSource="{Binding Categories}"
+                        Title="Category"
+                        SelectedItem="{Binding SelectedCategory}"
+                        IsVisible="{Binding Creation}"/>
+                <Entry Placeholder="Units"
+                       Text="{Binding WorkoutUnits}"/>
+                <Entry Placeholder="Est. Time" 
+                       Text="{Binding WorkoutTime}"
+                       FontSize="Medium"
+                       HorizontalOptions="EndAndExpand" 
+                       Keyboard="Numeric" 
+                       MaxLength="3"/>
             </StackLayout>
             
             <Frame BackgroundColor="White">
@@ -34,14 +49,14 @@
                     Text="{Binding WorkoutDescription}"/>
             </Frame>
             <StackLayout Orientation="Horizontal">
-                <Label Text="Weights involved:" VerticalOptions="Center" FontSize="Medium"/>
-                <CheckBox/>
+                <Label Text="Weights involved:" VerticalOptions="Center" FontSize="Medium" />
+                <CheckBox IsChecked="{Binding UsesWeights}"/>
             </StackLayout>
 
 
 
             <StackLayout Orientation="Horizontal" VerticalOptions="EndAndExpand">
-                <Button Text="Back" BackgroundColor="LightSteelBlue" CornerRadius="5" />
+                <Button Text="Back" BackgroundColor="LightSteelBlue" CornerRadius="5" Clicked="OnClickBack"/>
                 <Button Text="Save" BackgroundColor="LightGreen" CornerRadius="5" HorizontalOptions="EndAndExpand" Clicked="OnClickSave"/>
             </StackLayout>
 

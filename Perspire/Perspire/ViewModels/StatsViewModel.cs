@@ -1,11 +1,14 @@
 ﻿using OxyPlot;
 using OxyPlot.Axes;
 using OxyPlot.Series;
+using Perspire.DataStore;
 using Perspire.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
+using Xamarin.Forms.PlatformConfiguration.iOSSpecific;
 
 namespace Perspire.ViewModels
 {
@@ -15,39 +18,84 @@ namespace Perspire.ViewModels
 
         public StatsViewModel()
         {
-            StatList.Add(new StatViewModel
+            var data = Xamarin.Forms.DependencyService.Resolve<Perspire.DataStore.DataRepository>();
+
+            foreach ( var i in data.getStats())
             {
-                Entry = "Test",
-                Previous = "143",
-                Units = "lbs.",
-                Name = "Weight"
-            }); 
-            
-            StatList.Add(new StatViewModel
-            {
-                Entry = "Test1",
-                Previous = "122",
-                Units = "s",
-                Name = "Sprint Time"
-            });
+                StatList.Add(new StatViewModel(i));
+            }
+
         }
         
     }
 
-    class StatViewModel
+    class StatViewModel : BaseViewModel
     {
         public StatViewModel()
         {
             PieModel = CreatePieChart();
         }
-        public ObservableCollection<StatsEntry> Entries { get; set; }
+
+        private StatModel stat;
+
+
+        DataRepository data = Xamarin.Forms.DependencyService.Resolve<Perspire.DataStore.DataRepository>();
+
+        public StatViewModel(StatModel i)
+        {
+
+            stat = i;
+            stat.PropertyChanged += ((a, b) =>
+            {
+                Update();
+            });
+            Update();
+        }
+
+        public void Update()
+        {
+            
+            Entries.Clear();
+            foreach (var j in stat.entries)
+            {
+                Entries.Add(j);
+            }
+            PieModel = CreatePieChart();
+            
+            GoalLine = stat.goal;
+            Name = stat.name;
+            Units = stat.units;
+
+            OnPropertyChanged("PieModel");
+            OnPropertyChanged("GoalLine");
+            OnPropertyChanged("Name");
+            OnPropertyChanged("Units");
+            OnPropertyChanged("Previous");
+        }
+
+
+        public ObservableCollection<StatsEntry> Entries { get; set; } = new ObservableCollection<StatsEntry>();
 
         public PlotModel PieModel { get; set; }
 
         public String GoalLine { get; set; }
 
         public String Name { get; set; }
-        public String Previous { get; set; }
+        public String Previous
+        {
+            get {
+            
+                var x = Entries.LastOrDefault();
+                if (x != null)
+                {
+                    return x.Value.ToString();
+                }
+                else{
+                    return "None";
+                }
+                
+            }
+        }
         public String Units { get; set; }
 
         public String Entry { get; set; }
@@ -67,31 +115,21 @@ namespace Perspire.ViewModels
 
             var ps = new LineSeries
             {
-                ItemsSource = new List<StatsEntry>
-                {
-                    new StatsEntry
-                    {
-                        Value = 100,
-                        Date = new DateTimeOffset(2020,1,1,1,1,1,new TimeSpan())
-                    },
-                    new StatsEntry
-                    {
-                        Value = 110,
-                        Date = new DateTimeOffset(2020,2,1,1,1,1,new TimeSpan())
-                    },
-                    new StatsEntry
-                    {
-                        Value = 90,
-                        Date = new DateTimeOffset(2020,3,1,1,1,1,new TimeSpan())
-                    }
-
-                }
+                ItemsSource = Entries
             };
 
             // http://www.nationsonline.org/oneworld/world_population.htm
             // http://en.wikipedia.org/wiki/Continent
             model.Series.Add(ps);
             return model;
+        }
+
+        internal void SaveNew()
+        {
+            data.recordEntry(stat,new StatsEntry { 
+                Date = new DateTimeOffset(DateTime.Now),
+                Value = float.Parse(Entry)
+            });
         }
     }
 }

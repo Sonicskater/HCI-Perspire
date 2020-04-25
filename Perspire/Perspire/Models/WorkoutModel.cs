@@ -14,10 +14,13 @@ namespace Perspire.Models
     {
         [PrimaryKey]
         public string Name { get; set; }
-
-        public string Part { get; set; }
+        public string Units { get; set; }
         public string ImageSrc { get; set; }
+        public int EstTime { get; set; }
+
         public string Description { get; set; }
+
+        public bool weights { get; set; }
     }
     /// <summary>
     /// Workotu Group data model

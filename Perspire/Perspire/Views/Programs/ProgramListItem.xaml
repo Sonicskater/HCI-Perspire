@@ -4,7 +4,7 @@
              xmlns:d="http://xamarin.com/schemas/2014/forms/design"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
-             x:Class="Perspire.Views.Workouts.WorkoutListItem">
+             x:Class="Perspire.Views.ProgramListItem">
     <Frame Margin="15">
         <Grid Padding="2">
             <Grid.RowDefinitions>
@@ -26,7 +26,6 @@
                                     Grid.Column="1"
                                     FontAttributes="Bold"
                                     Text="{Binding Name}" />
-
             <Label
                                     Grid.Row="1"
                                     Grid.Column="2"

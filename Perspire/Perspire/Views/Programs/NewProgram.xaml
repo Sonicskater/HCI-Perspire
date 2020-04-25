@@ -8,72 +8,47 @@
              BackgroundColor="White">
     <ContentPage.Content>
         <StackLayout>
-            <Entry Placeholder="Program Name"></Entry>
+            <Entry Placeholder="Program Name" Text="{Binding ProgramName}" IsReadOnly="{Binding NotCreation}"></Entry>
             <BoxView BackgroundColor="Gray" HeightRequest="100"></BoxView>
-            <Picker Title="Category"/>
-            <Entry Placeholder="Description"/>
+            <Picker Title="Category" IsVisible="{Binding Creation}"/>
+            <Entry Placeholder="Description" Text="{Binding Description}"/>
             <Frame BackgroundColor="DarkGray" Padding="5,0,5,0">
-            <ScrollView>
-                <StackLayout>
-                    <Frame BackgroundColor="LightGray">
-                        <StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="WorkoutName" VerticalOptions="Center"/>
-                                    <Entry Placeholder="Time/Reps" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
-                                    <Entry Placeholder="Weeks"/>
-                                    <Button Text="Delete" HorizontalOptions="EndAndExpand" BackgroundColor="Maroon"/>
-                            </StackLayout>
-                            <Grid HorizontalOptions="CenterAndExpand">
-                                <Label Text="S" Grid.Column="0"/>
-                                <Label Text="M" Grid.Column="1"/>
-                                <Label Text="T" Grid.Column="2"/>
-                                <Label Text="W" Grid.Column="3"/>
-                                <Label Text="T" Grid.Column="4"/>
-                                <Label Text="F" Grid.Column="5"/>
-                                <Label Text="S" Grid.Column="6"/>
-                            </Grid>
-                            <Grid HorizontalOptions="CenterAndExpand">
-                                <CheckBox Grid.Column="0"/>
-                                <CheckBox Grid.Column="1"/>
-                                <CheckBox Grid.Column="2"/>
-                                <CheckBox Grid.Column="3"/>
-                                <CheckBox Grid.Column="4"/>
-                                <CheckBox Grid.Column="5"/>
-                                <CheckBox Grid.Column="6"/>
-                            </Grid>
-                        </StackLayout>
-                    </Frame>
-                    <Frame BackgroundColor="LightGray">
-                        <StackLayout>
-                            <StackLayout Orientation="Horizontal">
-                                <Label Text="WorkoutName" VerticalOptions="Center"/>
-                                <Entry Placeholder="Time/Reps" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
-                                    <Entry Placeholder="Weeks"/>
-                                    <Button Text="Delete" HorizontalOptions="EndAndExpand" BackgroundColor="Maroon"/>
-                            </StackLayout>
-                            <Grid HorizontalOptions="CenterAndExpand">
-                                <Label Text="S" Grid.Column="0"/>
-                                <Label Text="M" Grid.Column="1"/>
-                                <Label Text="T" Grid.Column="2"/>
-                                <Label Text="W" Grid.Column="3"/>
-                                <Label Text="T" Grid.Column="4"/>
-                                <Label Text="F" Grid.Column="5"/>
-                                <Label Text="S" Grid.Column="6"/>
-                            </Grid>
-                            <Grid HorizontalOptions="CenterAndExpand">
-                                <CheckBox Grid.Column="0"/>
-                                <CheckBox Grid.Column="1"/>
-                                <CheckBox Grid.Column="2"/>
-                                <CheckBox Grid.Column="3"/>
-                                <CheckBox Grid.Column="4"/>
-                                <CheckBox Grid.Column="5"/>
-                                <CheckBox Grid.Column="6"/>
-                            </Grid>
-                        </StackLayout>
-                    </Frame>
-                </StackLayout>
-                
-            </ScrollView>
+                <ListView>
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <Frame BackgroundColor="LightGray">
+                                    <StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Picker ItemsSource=""/>
+                                            <Entry Placeholder="Time/Reps" HorizontalOptions="CenterAndExpand" VerticalOptions="Center"/>
+                                            <Entry Placeholder="Weeks"/>
+                                            <Button Text="Delete" HorizontalOptions="EndAndExpand" BackgroundColor="Maroon"/>
+                                        </StackLayout>
+                                        <Grid HorizontalOptions="CenterAndExpand">
+                                            <Label Text="S" Grid.Column="0"/>
+                                            <Label Text="M" Grid.Column="1"/>
+                                            <Label Text="T" Grid.Column="2"/>
+                                            <Label Text="W" Grid.Column="3"/>
+                                            <Label Text="T" Grid.Column="4"/>
+                                            <Label Text="F" Grid.Column="5"/>
+                                            <Label Text="S" Grid.Column="6"/>
+                                        </Grid>
+                                        <Grid HorizontalOptions="CenterAndExpand">
+                                            <CheckBox Grid.Column="0"/>
+                                            <CheckBox Grid.Column="1"/>
+                                            <CheckBox Grid.Column="2"/>
+                                            <CheckBox Grid.Column="3"/>
+                                            <CheckBox Grid.Column="4"/>
+                                            <CheckBox Grid.Column="5"/>
+                                            <CheckBox Grid.Column="6"/>
+                                        </Grid>
+                                    </StackLayout>
+                                </Frame>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
             </Frame>
             <Button Text="Add workout" BackgroundColor="LightGreen" Margin="15,0,15,0" Clicked="Button_Clicked"></Button>
             <Frame VerticalOptions="End">

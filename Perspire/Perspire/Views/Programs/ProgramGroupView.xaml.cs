@@ -10,16 +10,19 @@ using Xamarin.Forms.Xaml;
 namespace Perspire.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class Program : ContentPage
+    public partial class ProgramGroupView : ViewCell
     {
-        public Program()
+        public ProgramGroupView()
         {
             InitializeComponent();
         }
 
-        private async void Button_Clicked(object sender, EventArgs e)
+
+
+        private void ToggleGroup(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new WorkoutList());
+            //var bindingContext = ((WorkoutGroupViewModel)BindingContext);
+            //bindingContext.Toggle();
         }
     }
 }

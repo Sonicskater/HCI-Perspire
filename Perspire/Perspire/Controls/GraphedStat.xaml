@@ -37,41 +37,20 @@
             </StackLayout>
         </controls:NestedDropCard.Top>
         <controls:NestedDropCard.Bottom>
-            <StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Date"/>
-                    <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Date"/>
-                    <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Date"/>
-                    <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Date"/>
-                    <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Date"/>
-                    <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Date"/>
-                    <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Date"/>
-                    <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
-                </StackLayout>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="Date"/>
-                    <Label HorizontalOptions="EndAndExpand" Text="Value lbs."/>
-                </StackLayout>
-                <Label Text="See more" HorizontalOptions="Center"/>
-            </StackLayout>
+            <ListView ItemsSource="{Binding Entries}"
+                          HasUnevenRows="True"
+                      VerticalOptions="Start"
+                      HeightRequest="100">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                                <StackLayout Orientation="Horizontal">
+                                    <Label Text="Blorp" />
+                                </StackLayout>
+                            </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
         </controls:NestedDropCard.Bottom>
     </controls:NestedDropCard>
 </ViewCell>

@@ -9,14 +9,16 @@ namespace Perspire.Models
 {
     class StatModel : RealmObject
     {
+        [PrimaryKey]
         public String name { get; set; }
         public String units { get; set; }
+        public String goal { get; set; }
         public IList<StatsEntry> entries { get; }
     }
 
     class StatsEntry : RealmObject, IDataPointProvider
     {
-        public int Value { get; set; }
+        public float Value { get; set; }
 
         public DateTimeOffset Date { get; set; }
 

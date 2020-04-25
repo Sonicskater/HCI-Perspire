@@ -6,6 +6,8 @@ using Android.Runtime;
 using Android.Views;
 using Android.Widget;
 using Android.OS;
+using Plugin.Toasts;
+using Xamarin.Forms;
 
 namespace Perspire.Droid
 {
@@ -19,13 +21,15 @@ namespace Perspire.Droid
 
             base.OnCreate(savedInstanceState);
 
-            Rg.Plugins.Popup.Popup.Init(this, savedInstanceState);
 
             global::Xamarin.Forms.Forms.SetFlags("CollectionView_Experimental");
             Xamarin.Essentials.Platform.Init(this, savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
 
             OxyPlot.Xamarin.Forms.Platform.Android.PlotViewRenderer.Init();
+
+            DependencyService.Register<ToastNotification>(); // Register your dependency
+            ToastNotification.Init(this);
 
             LoadApplication(new App());
         }
