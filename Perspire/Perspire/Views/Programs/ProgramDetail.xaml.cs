@@ -1,5 +1,6 @@
 using Perspire.DataStore;
 using Perspire.ViewModels;
+using Plugin.Toasts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -54,6 +55,14 @@ namespace Perspire.Views
         private void Button_Clicked_1(object sender, EventArgs e)
         {
             datastore.setCurrent(_model);
+            var notificator = DependencyService.Get<IToastNotificator>();
+            var options = new NotificationOptions()
+            {
+                Title = "Recorded",
+                Description = "Your Program has been set"
+            };
+
+            notificator.Notify(options);
         }
     }
 }

@@ -70,10 +70,7 @@
             </Frame>
             <Frame VerticalOptions="End">
                 <StackLayout Orientation="Horizontal">
-                    <Button
-                        BackgroundColor="DarkRed"
-                        HorizontalOptions="FillAndExpand"
-                        Text="Cancel" />
+
                     <Button
                         BackgroundColor="DarkGreen"
                         HorizontalOptions="FillAndExpand"
