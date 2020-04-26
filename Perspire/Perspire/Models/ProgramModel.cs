@@ -23,6 +23,7 @@ namespace Perspire.DataStore
     {
         public String WoName { get { return workout.Name; } }
 
+        public bool b { get; set; }
         public int reps { get; set; }
         public int weeks { get; set; }
 

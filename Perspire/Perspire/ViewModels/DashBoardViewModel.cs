@@ -22,6 +22,8 @@ namespace Perspire.ViewModels
         public StatsViewModel StatsContext { get; set; }
 
         public ObservableCollection<ActivityGroup> ActivityGroups { get; set; } = new ObservableCollection<ActivityGroup>();
+        public ObservableCollection<Goal> Goals { get; set; } = new ObservableCollection<Goal>();
+        public ObservableCollection<ToDo> Today { get; set; } = new ObservableCollection<ToDo>();
 
         private IQueryable<Activity> activities;
         public DashBoardViewModel()
@@ -31,10 +33,10 @@ namespace Perspire.ViewModels
 
             user = data.GetUserData();
 
-            user.PropertyChanged += (a, b) =>
+            data.Listen((a, b) =>
             {
                 Update();
-            };
+            });
 
             
 
@@ -56,8 +58,67 @@ namespace Perspire.ViewModels
         private void Update()
         {
             username = $"Welcome, {user.FirstName}!";
-            
 
+            Goals.Clear();
+            Today.Clear();
+            foreach (var goal in user.currentProgram.workouts)
+            {
+
+                var w = 10;
+                if (goal.max > 0)
+                {
+                    w = goal.max;
+                }
+
+                goal.PropertyChanged += (y, b) =>
+                {
+                    Update();
+                };
+
+                Goals.Add(new Goal { 
+                    
+                    Progress = (float)goal.progress / (float)w,
+                    Title = goal.workout.Name
+                });
+
+                var todo = false;
+
+                switch (DateTime.Today.DayOfWeek)
+                {
+                    case DayOfWeek.Friday:
+                        todo = goal.friday;
+                        break;
+                    case DayOfWeek.Monday:
+                        todo = goal.monday;
+                        break;
+                    case DayOfWeek.Saturday:
+                        todo = goal.saturday;
+                        break;
+                    case DayOfWeek.Sunday:
+                        todo = goal.sunday;
+                        break;
+                    case DayOfWeek.Thursday:
+                        todo = goal.thursday;
+                        break;
+                    case DayOfWeek.Tuesday:
+                        todo = goal.tuesday;
+                        break;
+                    case DayOfWeek.Wednesday:
+                        todo = goal.wendsday;
+                        break;
+                };
+
+                if (todo)
+                {
+                    Today.Add(new ToDo(goal));
+                }
+
+            }
+
+            user.currentProgram.PropertyChanged += (a, b) =>
+            {
+                Update();
+            };
             ProgramName = user.currentProgram.Name;
             
             ActivityGroups.Clear();
@@ -69,6 +130,7 @@ namespace Perspire.ViewModels
             ActivityGroups.Clear();
             foreach (var g in groups)
             {
+                
                 if (i >= max_act_group)
                 {
                     break;
@@ -77,6 +139,7 @@ namespace Perspire.ViewModels
 
                 foreach(var a in g)
                 {
+
                     x.activities.Add(a);
                 }
                 ActivityGroups.Add(x);
@@ -84,7 +147,47 @@ namespace Perspire.ViewModels
             }
             OnPropertyChanged("username");
             OnPropertyChanged("ProgramName");
+            OnPropertyChanged("Goals");
         }
+    }
+
+    class Goal : BaseViewModel
+    {
+        public String Title { get; set; } = "Test";
+        public float Progress { get; set; } = 0.7f;
+    }
+    class ToDo: BaseViewModel
+    {
+        private ProgramWorkout programWorkout;
+        public ToDo(ProgramWorkout pw)
+        {
+            programWorkout = pw;
+            name = pw.workout.Name;
+            b = pw.b;
+        }
+        public String name { get; set; }
+
+        private bool b;
+        public bool Checked { 
+            get{
+                return b;
+            }
+            set
+            {
+                if (!b)
+                {
+                    b = value;
+
+
+                    DependencyService.Resolve<DataRepository>().logProgramActivity(programWorkout);
+                }
+                
+            }
+        }
+        public bool NotChecked { get
+            {
+                return !Checked;
+            } }
     }
 
     class ActivityGroup : BaseViewModel

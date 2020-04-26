@@ -105,7 +105,10 @@ namespace Perspire.DataStore
                             Name = "Workout 4",
                             ImageSrc = "tab_about.png",
                             Description = "back workout"
-                        }
+                        },
+                            saturday = true,
+                            weeks = 5
+                            
                         }
                         
                     }
@@ -127,6 +130,12 @@ namespace Perspire.DataStore
             });
 
         }
+
+        public void Listen(Realms.Realm.RealmChangedEventHandler func)
+        {
+            realm.RealmChanged += func;
+        }
+
 
         internal void setCurrent(ProgramModel model)
         {
@@ -200,6 +209,27 @@ namespace Perspire.DataStore
                 });
             }
 
+        }
+
+        internal void logProgramActivity(ProgramWorkout programWorkout)
+        {
+            // Xamarin is broke, so this doesnt work
+            /*
+            addActivity(new Activity
+            {
+                workout = programWorkout.workout,
+                date = new DateTimeOffset(DateTime.Now),
+                reps = programWorkout.reps
+            });
+            */
+            
+
+            realm.Write(() =>
+            {
+                programWorkout.progress = programWorkout.progress + 1;
+                programWorkout.b = true;
+            });
+            
         }
 
         public void addWorkoutGroup(WorkoutGroupModel group)
