@@ -28,7 +28,12 @@ namespace Perspire.Views
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
-           // await Navigation.PushModalAsync(new Programs());
+            var x = new WorkoutPicker();
+            await Navigation.PushModalAsync(x);
+            var result = await x.data.PickWorkout();
+            await Navigation.PopModalAsync();
+
+            await Shell.Current.GoToAsync($"WorkoutDetail?name={result.Name}");
         }
 
         private async void ImageButton_Clicked_1(object sender, EventArgs e)
