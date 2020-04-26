@@ -1,4 +1,5 @@
 using Perspire.ViewModels.Workouts;
+using Plugin.Toasts;
 using System;
 using System.Collections.Generic;
 
@@ -46,6 +47,16 @@ namespace Perspire.Views
             }
         }
 
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            var notificator = DependencyService.Get<IToastNotificator>();
+            var options = new NotificationOptions()
+            {
+                Title = "Sorry!",
+                Description = "This Feature has not been implemented"
+            };
 
+            notificator.Notify(options);
+        }
     }
 }

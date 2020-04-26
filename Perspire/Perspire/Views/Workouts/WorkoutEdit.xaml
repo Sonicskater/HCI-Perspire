@@ -19,11 +19,15 @@
                        x:Name="NameField"/>
             </StackLayout>
             <Frame BackgroundColor="Gray">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                </Frame.GestureRecognizers>
                 <Image
                 x:Name="image"
                 HeightRequest="100"
                 WidthRequest="100"
-                    Source="{Binding ImgSrc}"/>
+                    Source="{Binding ImgSrc}"
+                    />
             </Frame>
             <StackLayout Orientation="Horizontal">
                 <Picker ItemsSource="{Binding Categories}"

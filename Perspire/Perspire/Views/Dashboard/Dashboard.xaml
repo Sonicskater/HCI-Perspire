@@ -25,7 +25,7 @@
                         <StackLayout Orientation="Horizontal" FlowDirection="RightToLeft">
                             <ImageButton BackgroundColor="Transparent" Clicked="ImageButton_Clicked_1">
                                 <ImageButton.Source>
-                                    <FontImageSource />
+                                    <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#x000f001d;" Color="Gray"/>
                                 </ImageButton.Source>
                             </ImageButton>
                             <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,0,0,0" HorizontalOptions="CenterAndExpand" Text="{Binding username}"/>
@@ -120,7 +120,12 @@
                             </DataTemplate>
                         </BindableLayout.ItemTemplate>
                     </StackLayout>
-                    <Label FontSize="Medium" HorizontalOptions="Center">See more...</Label>
+                    <Label FontSize="Medium" HorizontalOptions="Center">
+                        See more...
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"/>
+                        </Label.GestureRecognizers>
+                    </Label>
                 </StackLayout>
 
                 <!-- Stats -->
@@ -166,7 +171,9 @@
                                             <BindableLayout.ItemTemplate>
                                                 <DataTemplate>
                                                     <StackLayout Orientation="Horizontal">
-                                                        <Label Text="Blorp" />
+                                                        <Label Text="{Binding Value, StringFormat='{0:F2}'}" HorizontalOptions="StartAndExpand"/>
+                                                        <Label Text="{Binding Date, StringFormat='{0:MMMM dd, yyyy}'}" HorizontalOptions="EndAndExpand"/>
+
                                                     </StackLayout>
                                                 </DataTemplate>
                                             </BindableLayout.ItemTemplate>

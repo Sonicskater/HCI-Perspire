@@ -23,6 +23,7 @@ namespace Perspire.Models
     {
         public WorkoutModel workout { get; set; }
         public int reps { get; set; }
+        public int weight { get; set; }
         public DateTimeOffset date { get; set; }
     }
 

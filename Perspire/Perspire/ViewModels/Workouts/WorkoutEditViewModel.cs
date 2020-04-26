@@ -73,6 +73,7 @@ namespace Perspire.ViewModels.Workouts
             var notificator = DependencyService.Get<IToastNotificator>();
             if (WorkoutName == "" && Creation)
             {
+
                 var options = new NotificationOptions()
                 {
                     Title = "Input Error",

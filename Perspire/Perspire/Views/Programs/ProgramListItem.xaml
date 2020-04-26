@@ -5,32 +5,35 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
              mc:Ignorable="d"
              x:Class="Perspire.Views.ProgramListItem">
-    <Frame Margin="15">
-        <Grid Padding="2">
+    <Frame Margin="10"
+           Padding="0">
+        <Grid Padding="0"
+              Margin="0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto" />
                 <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="100" />
                 <ColumnDefinition Width="Auto" />
                 <ColumnDefinition Width="Auto" />
             </Grid.ColumnDefinitions>
             <Image
-                                    Grid.RowSpan="2"
+                                    Grid.RowSpan="3"
                                     Aspect="AspectFill"
-                                    HeightRequest="60"
-                                    Source="{Binding ImageSrc}"
-                                    WidthRequest="60" />
+
+                                    Source="download.jpg"
+                                    HeightRequest="80" />
             <Label
                                     Grid.Column="1"
                                     FontAttributes="Bold"
                                     Text="{Binding Name}" />
             <Label
-                                    Grid.Row="1"
-                                    Grid.Column="2"
-                                    Text="Estimated Time (mins)"
-                                    VerticalOptions="End" />
+                                    Grid.Column="1"
+                                    Grid.Row="2"
+                                    Text="{Binding Description}" />
+
         </Grid>
     </Frame>
 </ViewCell>

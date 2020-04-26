@@ -1,5 +1,6 @@
 ﻿using Perspire.Controls;
 using Perspire.ViewModels;
+using Plugin.Toasts;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,7 @@ namespace Perspire.Views
             BindingContext = vm;
         }
 
-        private void ImageButton_Clicked(object sender, EventArgs e)
-        {
-            System.Console.Out.WriteLine("Clicked!");
-        }
+
 
         private async void Button_Clicked(object sender, EventArgs e)
         {
@@ -38,13 +36,32 @@ namespace Perspire.Views
 
         private async void ImageButton_Clicked_1(object sender, EventArgs e)
         {
-            await Navigation.PushModalAsync(new ProfileSetup());
+            var notificator = DependencyService.Get<IToastNotificator>();
+            var options = new NotificationOptions()
+            {
+                Title = "Sorry!",
+                Description = "This Feature has not been implemented"
+            };
+
+            notificator.Notify(options);
         }
 
         private void Entry_Completed(object sender, EventArgs e)
         {
             var data = (StatViewModel)((Entry)sender).BindingContext;
             data.SaveNew();
+        }
+
+        private void TapGestureRecognizer_Tapped(object sender, EventArgs e)
+        {
+            var notificator = DependencyService.Get<IToastNotificator>();
+            var options = new NotificationOptions()
+            {
+                Title = "Sorry!",
+                Description = "This Feature has not been implemented"
+            };
+
+            notificator.Notify(options);
         }
     }
 }

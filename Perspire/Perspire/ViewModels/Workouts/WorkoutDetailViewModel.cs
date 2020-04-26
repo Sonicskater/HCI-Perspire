@@ -1,5 +1,6 @@
 ﻿using Perspire.DataStore;
 using Perspire.Models;
+using Plugin.Toasts;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -54,18 +55,58 @@ namespace Perspire.ViewModels.Workouts
 
         internal void saveActivity()
         {
-            datastore.addActivity(new Activity
+            try
             {
-                date = new DateTimeOffset(Date),
-                workout = _model
-            });
+                if (Weights)
+                {
+                    datastore.addActivity(new Activity
+                    {
+                        date = new DateTimeOffset(Date),
+                        workout = _model,
+                        reps = Int32.Parse(Reps),
+                        weight = Int32.Parse(Weight)
+                    });
+                }
+                else
+                {
+                    datastore.addActivity(new Activity
+                    {
+                        date = new DateTimeOffset(Date),
+                        workout = _model,
+                        reps = Int32.Parse(Reps)
+                    });
+                }
+
+
+                var notificator = DependencyService.Get<IToastNotificator>();
+                var options = new NotificationOptions()
+                {
+                    Title = "Recorded",
+                    Description = "Your activity has been recorded, and can be seen on the Dsahboard"
+                };
+
+                notificator.Notify(options);
+            }
+            catch (Exception e)
+            {
+                var notificator = DependencyService.Get<IToastNotificator>();
+                var options = new NotificationOptions()
+                {
+                    Title = "Input Error",
+                    Description = "Reps and weights must be whole nubmers"
+                };
+
+                notificator.Notify(options);
+            }
         }
 
         public String Name { get; set; }
         public String Desc { get; set; }
+        public String Weight { get; set; }
         public String ImgSrc { get; set; }
         public String WorkoutUnits { get; set; }
         public String Time { get; set; }
+        public String Reps { get; set; }
         
         public DateTime Date { get; set; }
         public bool Weights { get; set; }
