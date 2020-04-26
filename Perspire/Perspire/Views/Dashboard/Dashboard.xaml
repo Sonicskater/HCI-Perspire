@@ -28,7 +28,7 @@
                                     <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#x000f001d;" Color="Gray"/>
                                 </ImageButton.Source>
                             </ImageButton>
-                            <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,0,0,0" HorizontalOptions="CenterAndExpand">Welcome, name!</Label>
+                            <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,0,0,0" HorizontalOptions="CenterAndExpand" Text="{Binding username}"/>
 
                         </StackLayout>
                     </StackLayout>
@@ -40,7 +40,7 @@
                 <controls:NestedDropCard>
                     <controls:NestedDropCard.Top>
                         <StackLayout Padding="0,0,0,0">
-                            <Label FontSize="Medium" Padding="10,10,0,0">Program Name</Label>
+                            <Label FontSize="Medium" Padding="10,10,0,0" Text="{Binding ProgramName}"/>
                             <Frame  Margin="0">
                                 <StackLayout>
                                     <Label>Goal 1</Label>

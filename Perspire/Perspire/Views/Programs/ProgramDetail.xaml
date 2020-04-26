@@ -77,7 +77,8 @@
                     <Button
                         BackgroundColor="DarkGreen"
                         HorizontalOptions="FillAndExpand"
-                        Text="Set Current" />
+                        Text="Set Current" 
+                        Clicked="Button_Clicked_1"/>
                 </StackLayout>
             </Frame>
         </StackLayout>

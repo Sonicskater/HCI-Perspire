@@ -91,7 +91,8 @@ namespace Perspire.DataStore
 
             var UserData = new UserData
             {
-                Name = "Bob",
+                make_sure_only_1_lol = 1,  
+                FirstName = "Bob",
                 currentProgram = new ProgramModel
                 {
                     Name = "Hello there",
@@ -125,6 +126,17 @@ namespace Perspire.DataStore
                 name = "Sprint Time"
             });
 
+        }
+
+        internal void setCurrent(ProgramModel model)
+        {
+            var u = GetUserData();
+
+            realm.Write(() =>
+            {
+                u.currentProgram = model;
+                
+            });
         }
 
         internal ProgramModel getProgram(string value)

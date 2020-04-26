@@ -12,6 +12,12 @@ namespace Perspire.ViewModels
 {
     class DashBoardViewModel : BaseViewModel
     {
+        private UserData user;
+
+        public String username { get; set; }
+
+        public String ProgramName { get; set; }
+
         private DataRepository data = DependencyService.Resolve<DataRepository>();
         public StatsViewModel StatsContext { get; set; }
 
@@ -23,6 +29,16 @@ namespace Perspire.ViewModels
             StatsContext = DependencyService.Resolve<StatsViewModel>();
             OnPropertyChanged();
 
+            user = data.GetUserData();
+
+            user.PropertyChanged += (a, b) =>
+            {
+                Update();
+            };
+
+            
+
+            
             activities = data.getActivites();
 
             activities.AsRealmCollection().PropertyChanged += (a,b) =>
@@ -39,6 +55,11 @@ namespace Perspire.ViewModels
 
         private void Update()
         {
+            username = $"Welcome, {user.FirstName}!";
+            
+
+            ProgramName = user.currentProgram.Name;
+            
             ActivityGroups.Clear();
 
             var groups = activities.ToList()
@@ -61,7 +82,8 @@ namespace Perspire.ViewModels
                 ActivityGroups.Add(x);
                 i++;
             }
-            OnPropertyChanged();
+            OnPropertyChanged("username");
+            OnPropertyChanged("ProgramName");
         }
     }
 

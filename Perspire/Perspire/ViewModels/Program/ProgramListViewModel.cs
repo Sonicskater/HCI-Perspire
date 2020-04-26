@@ -1,4 +1,5 @@
 ﻿using Perspire.DataStore;
+using Perspire.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -15,19 +16,32 @@ namespace Perspire.ViewModels
 
         DataRepository data = DependencyService.Resolve<DataRepository>();
 
+        private UserData user;
         public ProgramListViewModel()
         {
+            user = data.GetUserData();
+
+            user.PropertyChanged += (a, b) =>
+            {
+                Update();
+            };
+
+            Update();
+        }
+
+        public void Update()
+        {
+            ProgramGroups.Clear();
             ProgramGroups.Add(new ProgramGroupViewModel(new ProgramGroupModel
             {
                 Name = "Current",
-                programs = { data.GetUserData().currentProgram }
+                programs = { user.currentProgram }
             }));
             foreach (var i in data.getProgramGroups())
             {
                 ProgramGroups.Add(new ProgramGroupViewModel(i));
             }
         }
-
 
         private async void OnItemSelected(Object sender, ItemTappedEventArgs e)
         {

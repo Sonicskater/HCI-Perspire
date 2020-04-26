@@ -25,6 +25,44 @@ namespace Perspire.DataStore
 
         public int reps { get; set; }
         public int weeks { get; set; }
+
+        public int progress { get; set; }
+
+        [Ignored]
+        public int max { get
+            {
+                var i = 0;
+                if (monday)
+                {
+                    i++;
+                }
+                if (tuesday)
+                {
+                    i++;
+                }
+                if (wendsday)
+                {
+                    i++;
+                }
+                if (thursday)
+                {
+                    i++;
+                }
+                if (friday)
+                {
+                    i++;
+                }
+                if (saturday)
+                {
+                    i++;
+                }
+                if (sunday)
+                {
+                    i++;
+                }
+                return i * weeks;
+            } }
+
         public WorkoutModel workout { get; set; }
 
         public bool monday {get; set;}

@@ -10,7 +10,10 @@ namespace Perspire.Models
     class UserData : RealmObject
     {
         [PrimaryKey]
-        public String Name { get; set; }
+        public int make_sure_only_1_lol {get; set;}
+
+        public String FirstName { get; set; }
+        public String LastName { get; set; }
         public ProgramModel currentProgram { get; set; }
 
         public IList<Activity> activities { get; }

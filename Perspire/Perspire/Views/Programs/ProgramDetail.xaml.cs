@@ -23,10 +23,13 @@ namespace Perspire.Views
                 _Name = value;
             }
         }
-
+        ProgramModel _model;
+        ProgramDetailViewModel data = DependencyService.Resolve<ProgramDetailViewModel>();
+        DataRepository datastore = DependencyService.Resolve<DataRepository>();
         public ProgramDetail(ProgramModel model)
         {
-            var data = DependencyService.Resolve<ProgramDetailViewModel>();
+            _model = model;
+            
             InitializeComponent();
             BindingContext = data;
 
@@ -37,6 +40,7 @@ namespace Perspire.Views
 
         
         
+        
         private async void Button_Clicked(object sender, EventArgs e)
         {
             await Navigation.PushModalAsync(new WorkoutList());
@@ -45,6 +49,11 @@ namespace Perspire.Views
         private async void Ediit(object sender, EventArgs e)
         {
             await Shell.Current.GoToAsync($"ProgramEdit?name={_Name}");
+        }
+
+        private void Button_Clicked_1(object sender, EventArgs e)
+        {
+            datastore.setCurrent(_model);
         }
     }
 }
