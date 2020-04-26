@@ -1,4 +1,5 @@
 ﻿using OxyPlot;
+using OxyPlot.Annotations;
 using OxyPlot.Axes;
 using OxyPlot.Series;
 using Perspire.DataStore;
@@ -49,7 +50,7 @@ namespace Perspire.ViewModels
             PieModel = CreatePieChart();
         }
 
-        private StatModel stat;
+        public StatModel stat;
 
 
         DataRepository data = Xamarin.Forms.DependencyService.Resolve<Perspire.DataStore.DataRepository>();
@@ -123,6 +124,25 @@ namespace Perspire.ViewModels
                 FirstDayOfWeek = DayOfWeek.Monday,
                 Position = AxisPosition.Bottom
             });
+            var x = 0;
+            Int32.TryParse(GoalLine, out x);
+
+            if (x != 0)
+            {
+
+                var Line = new LineAnnotation()
+                {
+                    StrokeThickness = 1,
+                    Color = OxyColors.Aqua,
+                    Type = LineAnnotationType.Horizontal,
+                    Text = "Goal",
+                    TextColor = OxyColors.Black,
+                    X = 0,
+                    Y = x
+                };
+
+                model.Annotations.Add(Line);
+            }
 
             model.Axes.Add(new LinearAxis());
 

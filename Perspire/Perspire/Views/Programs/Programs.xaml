@@ -39,11 +39,7 @@
                                     <Entry HorizontalOptions="FillAndExpand" Text="{Binding SearchString, Mode=TwoWay}"/>
                                 </StackLayout>
                             </Frame>
-                            <ImageButton BackgroundColor="Transparent" Clicked="OpenFilter" VerticalOptions="Center">
-                                <ImageButton.Source>
-                                    <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf232;" Color="White"/>
-                                </ImageButton.Source>
-                            </ImageButton>
+                           
                         </StackLayout>
                     </Frame>
                     <!-- Content -->

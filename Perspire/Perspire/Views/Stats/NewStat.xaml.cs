@@ -1,4 +1,5 @@
-﻿using Perspire.ViewModels;
+﻿using Perspire.Models;
+using Perspire.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,15 @@ namespace Perspire.Views
             InitializeComponent();
             
             BindingContext = data;
+        }
+
+        public NewStat(StatModel s)
+        {
+            InitializeComponent();
+
+            BindingContext = data;
+
+            data.Load(s);
         }
 
         public void OnClickSave(Object sender, EventArgs e)

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Perspire.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,8 +22,8 @@ namespace Perspire.Views
 
         private void ToggleGroup(object sender, EventArgs e)
         {
-            //var bindingContext = ((WorkoutGroupViewModel)BindingContext);
-            //bindingContext.Toggle();
+            var bindingContext = ((ProgramGroupViewModel)BindingContext);
+            bindingContext.Toggle();
         }
     }
 }

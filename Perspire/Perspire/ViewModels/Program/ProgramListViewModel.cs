@@ -13,6 +13,21 @@ namespace Perspire.ViewModels
     {
         public ObservableCollection<ProgramGroupViewModel> ProgramGroups { get; set; }  = new ObservableCollection<ProgramGroupViewModel>();
 
+        private String _searchString = "";
+        public String SearchString
+        {
+            get { return _searchString; }
+            set
+            {
+                _searchString = value;
+
+                foreach (var i in ProgramGroups)
+                {
+                    i.filter = value;
+                }
+
+            }
+        }
 
         DataRepository data = DependencyService.Resolve<DataRepository>();
 
@@ -88,7 +103,7 @@ namespace Perspire.ViewModels
             {
                 foreach (var i in programs.programs)
                 {
-                    if (i.Name.ToLower().StartsWith(_filter.ToLower()))
+                    if (i.Name.ToLower().Contains(_filter.ToLower()))
                     {
                         Add(i);
                     }

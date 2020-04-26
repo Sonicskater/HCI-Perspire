@@ -15,8 +15,11 @@
 
                 <StackLayout Orientation="Horizontal">
                     <Label FontSize="Title" Text ="{Binding Name}"/>
+                    <Label FontSize="Small" VerticalOptions="Center" Text="Goal:"/>
                     <Label FontSize="Small" VerticalOptions="Center" Text="{Binding GoalLine}"/>
-                    <ImageButton HorizontalOptions="EndAndExpand">
+                    <Label FontSize="Small" VerticalOptions="Center" Text="{Binding Units}"/>
+                    
+                    <ImageButton HorizontalOptions="EndAndExpand" Clicked="ImageButton_Clicked">
                         <ImageButton.Source>
                             <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#x000f037e;" Color="DarkGray"/>
                         </ImageButton.Source>
@@ -41,7 +44,9 @@
                 <BindableLayout.ItemTemplate>
                     <DataTemplate>
                         <StackLayout Orientation="Horizontal">
-                            <Label Text="Blorp" />
+                            <Label Text="{Binding Value, StringFormat='{0:F2}'}" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding Date, StringFormat='{0:MMMM dd, yyyy}'}" HorizontalOptions="EndAndExpand"/>
+                        
                         </StackLayout>
                     </DataTemplate>
                 </BindableLayout.ItemTemplate>

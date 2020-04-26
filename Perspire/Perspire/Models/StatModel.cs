@@ -7,7 +7,7 @@ using System.Text;
 
 namespace Perspire.Models
 {
-    class StatModel : RealmObject
+    public class StatModel : RealmObject
     {
         [PrimaryKey]
         public String name { get; set; }
@@ -16,7 +16,7 @@ namespace Perspire.Models
         public IList<StatsEntry> entries { get; }
     }
 
-    class StatsEntry : RealmObject, IDataPointProvider
+    public class StatsEntry : RealmObject, IDataPointProvider
     {
         public float Value { get; set; }
 

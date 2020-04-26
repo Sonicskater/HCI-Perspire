@@ -88,7 +88,7 @@ namespace Perspire.ViewModels
             {
                 foreach (var i in workouts)
                 {
-                    if (i.Name.ToLower().StartsWith(_filter.ToLower()))
+                    if (i.Name.ToLower().Contains(_filter.ToLower()))
                     {
                         Add(i);
                     }
