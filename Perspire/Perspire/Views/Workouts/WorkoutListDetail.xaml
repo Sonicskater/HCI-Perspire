@@ -42,7 +42,7 @@
                     <StackLayout Orientation="Horizontal">
                         <Entry Placeholder="{Binding WorkoutUnits}" HorizontalOptions="FillAndExpand"/>
                         <Label Text="{Binding WorkoutUnits}" VerticalOptions="Center"/>
-                        <DatePicker HorizontalOptions="FillAndExpand"/>
+                        <DatePicker HorizontalOptions="FillAndExpand" Date="{Binding Date}"/>
                     </StackLayout>
                     <Entry Placeholder="Weight" IsVisible="{Binding Weights}"/>
                     <Button Text="Record" Clicked="Button_Clicked"/>

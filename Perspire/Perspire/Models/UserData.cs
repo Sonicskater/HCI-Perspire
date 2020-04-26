@@ -12,6 +12,15 @@ namespace Perspire.Models
         [PrimaryKey]
         public String Name { get; set; }
         public ProgramModel currentProgram { get; set; }
+
+        public IList<Activity> activities { get; }
+    }
+
+    public class Activity : RealmObject
+    {
+        public WorkoutModel workout { get; set; }
+        public int reps { get; set; }
+        public DateTimeOffset date { get; set; }
     }
 
     class WorkoutLog : RealmObject

@@ -29,7 +29,9 @@ namespace Perspire.ViewModels.Workouts
             ImgSrc = _model.ImageSrc;
             Weights = _model.weights;
             Time = _model.EstTime.ToString();
+            Date = DateTime.Now;
             WorkoutUnits = _model.Units;
+            OnPropertyChanged("Date");
             OnPropertyChanged("WorkoutUnits");
             OnPropertyChanged("Name");
             OnPropertyChanged("Time");
@@ -50,11 +52,22 @@ namespace Perspire.ViewModels.Workouts
             }
         }
 
+        internal void saveActivity()
+        {
+            datastore.addActivity(new Activity
+            {
+                date = new DateTimeOffset(Date),
+                workout = _model
+            });
+        }
+
         public String Name { get; set; }
         public String Desc { get; set; }
         public String ImgSrc { get; set; }
         public String WorkoutUnits { get; set; }
-        public String Time {get; set;}
+        public String Time { get; set; }
+        
+        public DateTime Date { get; set; }
         public bool Weights { get; set; }
 
         DataRepository datastore = DependencyService.Resolve<DataRepository>();

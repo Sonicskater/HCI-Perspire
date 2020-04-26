@@ -11,7 +11,7 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout>
-                
+
                 <!-- Welcome card-->
                 <Frame Margin="0">
                     <StackLayout>
@@ -22,15 +22,15 @@
                             </Image.Source>
                         </Image>
 
-                    <StackLayout Orientation="Horizontal" FlowDirection="RightToLeft">
-                        <ImageButton BackgroundColor="Transparent" Clicked="ImageButton_Clicked_1">
-                            <ImageButton.Source>
-                                <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#x000f001d;" Color="Gray"/>
-                            </ImageButton.Source>
-                        </ImageButton>
-                        <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,0,0,0" HorizontalOptions="CenterAndExpand">Welcome, name!</Label>
-                        
-                    </StackLayout>
+                        <StackLayout Orientation="Horizontal" FlowDirection="RightToLeft">
+                            <ImageButton BackgroundColor="Transparent" Clicked="ImageButton_Clicked_1">
+                                <ImageButton.Source>
+                                    <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#x000f001d;" Color="Gray"/>
+                                </ImageButton.Source>
+                            </ImageButton>
+                            <Label FontSize="Title" HorizontalTextAlignment="Center" Padding="0,0,0,0" HorizontalOptions="CenterAndExpand">Welcome, name!</Label>
+
+                        </StackLayout>
                     </StackLayout>
 
                 </Frame>
@@ -94,145 +94,56 @@
                             <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf417;" Color="White"/>
                         </Button.ImageSource>
                     </Button>
-                    <controls:NestedDropCard>
-                        <controls:NestedDropCard.Top>
-                            <Label FontSize="Medium" FontAttributes="Bold">Today </Label>
-                        </controls:NestedDropCard.Top>
-                        <controls:NestedDropCard.Bottom>
-                            <StackLayout>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
+                    <StackLayout Orientation="Vertical" BindableLayout.ItemsSource="{Binding ActivityGroups}">
+                        <BindableLayout.ItemTemplate>
+                            <DataTemplate>
+                                <controls:NestedDropCard>
+                                    <controls:NestedDropCard.Top>
+                                        <Label Text="{Binding date}" FontSize="Medium" FontAttributes="Bold"/>
+                                    </controls:NestedDropCard.Top>
+                                    <controls:NestedDropCard.Bottom>
+                                        <StackLayout BindableLayout.ItemsSource="{Binding activities}">
+                                            <BindableLayout.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <Grid.ColumnDefinitions>
+                                                            <ColumnDefinition Width="*"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                            <ColumnDefinition Width="Auto"/>
+                                                        </Grid.ColumnDefinitions>
 
-                                    <Label Grid.Column="1" Text="Reps" VerticalOptions="Center"/>
-                                    <Label Grid.Column="0" Text="Exercise" VerticalOptions="Center"/>
-                                    <ImageButton Grid.Column="2">
-                                        <ImageButton.Source>
-                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
-                                        </ImageButton.Source>
-                                    </ImageButton>
-                                </Grid>
-                                
-                            </StackLayout>
-                        </controls:NestedDropCard.Bottom>
-                    </controls:NestedDropCard>
+                                                        <Label Grid.Column="1" Text="{Binding reps}" VerticalOptions="Center"/>
+                                                        <Label Grid.Column="0" Text="{Binding workout.Name}" VerticalOptions="Center"/>
+                                                        <ImageButton Grid.Column="2">
+                                                            <ImageButton.Source>
+                                                                <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
+                                                            </ImageButton.Source>
+                                                        </ImageButton>
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </BindableLayout.ItemTemplate>
+                                        </StackLayout>
+                                    </controls:NestedDropCard.Bottom>
 
-                    <controls:NestedDropCard>
-                        <controls:NestedDropCard.Top>
-                            <Label FontSize="Medium" FontAttributes="Bold">Yesterday</Label>
-                        </controls:NestedDropCard.Top>
-                        <controls:NestedDropCard.Bottom>
-                            <StackLayout>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Label Grid.Column="1" Text="Reps" VerticalOptions="Center"/>
-                                    <Label Grid.Column="0" Text="Exercise" VerticalOptions="Center"/>
-                                    <ImageButton Grid.Column="2">
-                                        <ImageButton.Source>
-                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
-                                        </ImageButton.Source>
-                                    </ImageButton>
-                                </Grid>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Label Grid.Column="1" Text="Reps" VerticalOptions="Center"/>
-                                    <Label Grid.Column="0" Text="Exercise" VerticalOptions="Center"/>
-                                    <ImageButton Grid.Column="2">
-                                        <ImageButton.Source>
-                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
-                                        </ImageButton.Source>
-                                    </ImageButton>
-                                </Grid>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Label Grid.Column="1" Text="Reps" VerticalOptions="Center"/>
-                                    <Label Grid.Column="0" Text="Exercise" VerticalOptions="Center"/>
-                                    <ImageButton Grid.Column="2">
-                                        <ImageButton.Source>
-                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
-                                        </ImageButton.Source>
-                                    </ImageButton>
-                                </Grid><Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Label Grid.Column="1" Text="Reps" VerticalOptions="Center"/>
-                                    <Label Grid.Column="0" Text="Exercise" VerticalOptions="Center"/>
-                                    <ImageButton Grid.Column="2">
-                                        <ImageButton.Source>
-                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
-                                        </ImageButton.Source>
-                                    </ImageButton>
-                                </Grid>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Label Grid.Column="1" Text="Reps" VerticalOptions="Center"/>
-                                    <Label Grid.Column="0" Text="Exercise" VerticalOptions="Center"/>
-                                    <ImageButton Grid.Column="2">
-                                        <ImageButton.Source>
-                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
-                                        </ImageButton.Source>
-                                    </ImageButton>
-                                </Grid>
-                                <Grid>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="*"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition Width="Auto"/>
-                                    </Grid.ColumnDefinitions>
-
-                                    <Label Grid.Column="1" Text="Reps" VerticalOptions="Center"/>
-                                    <Label Grid.Column="0" Text="Exercise" VerticalOptions="Center"/>
-                                    <ImageButton Grid.Column="2">
-                                        <ImageButton.Source>
-                                            <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#xf418;" Color="DarkGray"/>
-                                        </ImageButton.Source>
-                                    </ImageButton>
-                                </Grid>
-                            </StackLayout>
-                        </controls:NestedDropCard.Bottom>
-                    </controls:NestedDropCard>
-                    <Label FontSize="Medium" HorizontalOptions="Center"> See more...</Label>
+                                </controls:NestedDropCard>
+                            </DataTemplate>
+                        </BindableLayout.ItemTemplate>
+                    </StackLayout>
+                    <Label FontSize="Medium" HorizontalOptions="Center">See more...</Label>
                 </StackLayout>
-                
+
                 <!-- Stats -->
-                    <StackLayout BindingContext="{Binding StatsContext}">
+                <StackLayout BindingContext="{Binding StatsContext}">
 
 
 
-                        <StackLayout Orientation="Horizontal">
-                            <Label FontSize="Large" Padding="10,0,0,0">Statistics</Label>
-                            <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.2" Color="Black"></BoxView>
+                    <StackLayout Orientation="Horizontal">
+                        <Label FontSize="Large" Padding="10,0,0,0">Statistics</Label>
+                        <BoxView VerticalOptions="Center" HorizontalOptions="FillAndExpand" WidthRequest="1" HeightRequest="0.2" Color="Black"></BoxView>
 
-                        </StackLayout>
-                        <StackLayout  BindableLayout.ItemsSource="{Binding StatList }">
-                            <BindableLayout.ItemTemplate>
+                    </StackLayout>
+                    <StackLayout  BindableLayout.ItemsSource="{Binding StatList }">
+                        <BindableLayout.ItemTemplate>
                             <DataTemplate>
                                 <controls:NestedDropCard>
                                     <controls:NestedDropCard.Top>
@@ -272,10 +183,10 @@
                                     </controls:NestedDropCard.Bottom>
                                 </controls:NestedDropCard>
                             </DataTemplate>
-                            </BindableLayout.ItemTemplate>
+                        </BindableLayout.ItemTemplate>
 
-                        </StackLayout>
                     </StackLayout>
+                </StackLayout>
 
             </StackLayout>
         </ScrollView>

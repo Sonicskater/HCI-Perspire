@@ -43,7 +43,7 @@ namespace Perspire.Views
 
         private void Button_Clicked(object sender, EventArgs e)
         {
-
+            data.saveActivity();
         }
     }
 }

@@ -60,22 +60,17 @@
                                     <local:WorkoutListItem/>
                                 </DataTemplate>
                             </ListView.ItemTemplate>
-                            
+
                             <ListView.GroupHeaderTemplate>
                                 <DataTemplate>
                                     <local:WorkoutListGroup/>
                                 </DataTemplate>
                             </ListView.GroupHeaderTemplate>
-                            
+
                         </ListView>
                     </ScrollView>
                 </StackLayout>
             </Grid>
-            <Button AbsoluteLayout.LayoutFlags="PositionProportional" AbsoluteLayout.LayoutBounds="0.98,1, AutoSize, AutoSize" Style="{StaticResource FABPrimary}" BorderWidth="0" BorderColor="Black" Clicked="Button_Clicked">
-                <Button.ImageSource>
-                    <FontImageSource FontFamily="{StaticResource IconFont}" Glyph="&#x000f0217;" Color="White"/>
-                </Button.ImageSource>
-            </Button>
         </AbsoluteLayout>
     </ContentPage.Content>
 </ContentPage>

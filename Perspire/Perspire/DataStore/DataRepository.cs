@@ -229,6 +229,19 @@ namespace Perspire.DataStore
             return realm.All<StatModel>();
         }
 
+        public IQueryable<Activity> getActivites()
+        {
+            return realm.All<Activity>();
+        }
+
+        public void addActivity(Activity act)
+        {
+            realm.Write(() =>
+            {
+                realm.Add(act, true);
+            });
+        }
+
         public UserData GetUserData()
         {
             return realm.All<UserData>().FirstOrDefault();
